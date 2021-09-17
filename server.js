@@ -1,5 +1,4 @@
 
-/*imports http module*/
 const http = require('http'), 
       fs = require('fs'), 
       url = require('url');
@@ -27,7 +26,7 @@ http.createServer((request, response) => {
   });
 
 }).listen(8080);
-console.log('My test server is running on Port 8080.');
+console.log('Hello there!');
 
 
  

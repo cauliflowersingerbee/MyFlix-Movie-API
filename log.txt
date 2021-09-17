@@ -33,4 +33,48 @@ http.createServer((request, response) => {
   });
 
 }).listen(8080);
-console.log('My test server is running on Port 8080.');
+console.log('My test server is running on Port 8080.');URL: /
+Timestamp: Fri Sep 17 2021 09:57:37 GMT+0200 (Central European Summer Time)
+
+URL: /favicon.ico
+Timestamp: Fri Sep 17 2021 09:57:38 GMT+0200 (Central European Summer Time)
+
+URL: /documentation
+Timestamp: Fri Sep 17 2021 09:57:46 GMT+0200 (Central European Summer Time)
+
+URL: /documentation
+Timestamp: Fri Sep 17 2021 09:58:37 GMT+0200 (Central European Summer Time)
+
+URL: /log.txt
+Timestamp: Fri Sep 17 2021 09:58:55 GMT+0200 (Central European Summer Time)
+
+URL: /favicon.ico
+Timestamp: Fri Sep 17 2021 09:58:55 GMT+0200 (Central European Summer Time)
+
+URL: /index
+Timestamp: Fri Sep 17 2021 09:59:10 GMT+0200 (Central European Summer Time)
+
+URL: /favicon.ico
+Timestamp: Fri Sep 17 2021 09:59:10 GMT+0200 (Central European Summer Time)
+
+URL: /documentation
+Timestamp: Fri Sep 17 2021 09:59:19 GMT+0200 (Central European Summer Time)
+
+URL: /documentation
+Timestamp: Fri Sep 17 2021 10:01:40 GMT+0200 (Central European Summer Time)
+
+URL: /documentation.html
+Timestamp: Fri Sep 17 2021 10:01:46 GMT+0200 (Central European Summer Time)
+
+URL: /documentation
+Timestamp: Fri Sep 17 2021 10:01:56 GMT+0200 (Central European Summer Time)
+
+URL: /documentation
+Timestamp: Fri Sep 17 2021 10:02:52 GMT+0200 (Central European Summer Time)
+
+URL: /documentation
+Timestamp: Fri Sep 17 2021 10:08:13 GMT+0200 (Central European Summer Time)
+
+URL: /documentation
+Timestamp: Fri Sep 17 2021 10:08:20 GMT+0200 (Central European Summer Time)
+
