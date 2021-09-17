@@ -9,7 +9,7 @@ http.createServer((request, response) => {
   filePath = '';
 
   if (q.pathname.includes('documentation')) {
-    filePath = (__dirname + '/documentation.html');
+    filePath = ('/Users/okwiri/Desktop/ex 1.3/MyFlix-Movie-API' + '/documentation.html');
   } else {
     filePath = 'index.html';
   }
