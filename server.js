@@ -8,8 +8,16 @@ http.createServer((request, response) => {
   q = url.parse(addr, true),
   filePath = '';
 
+  fs.appendFile('log.txt', 'URL: ' + addr + '\nTimestamp: ' + new Date() + '\n\n', (err) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log('Added to log.');
+    }
+  });
+
   if (q.pathname.includes('documentation')) {
-    filePath = ('__dirname' + '/documentation.html');
+    filePath = (__dirname + '/documentation.html');
   } else {
     filePath = 'index.html';
   }
@@ -26,8 +34,9 @@ http.createServer((request, response) => {
   });
 
 }).listen(8080);
-console.log('Hello there!');
+console.log('My test server is running on Port 8080.');
 
+  
 
  
 
