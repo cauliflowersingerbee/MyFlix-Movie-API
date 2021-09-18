@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-let topFilmss = [
+let topMovies = [
       {
         title: 'Moonlight',
         director: 'Barry Jenkins'
@@ -44,4 +44,21 @@ let topFilmss = [
       }
 
   ];
+  
+  // GET requests
+  
+  app.get('/movies', (req, res) => {
+    res.json(topMovies);
+  });
+
+  app.get('/', (req, res) => {
+    res.send('Welcome to Kino Noir!');
+  });
+  
+  
+  
+  // listen for requests
+  app.listen(8080, () => {
+    console.log('Your app is listening on port 8080.');
+  });
   
