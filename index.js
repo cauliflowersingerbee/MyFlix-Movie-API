@@ -1,6 +1,9 @@
 /*requiring express*/
 const express = require('express');
+const morgan = require('morgan');
+
 const app = express();
+
 
 /*creating data about top 10 movies*/
 let topMovies = [
@@ -67,8 +70,6 @@ let topMovies = [
   file from public folder*/
   app.use(express.static('public'));
 
-  /*using Morgan to log all requests*/
-const morgan = require('morgan');
 
 app.use(morgan('common'));
 
