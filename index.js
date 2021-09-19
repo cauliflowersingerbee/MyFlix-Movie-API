@@ -59,6 +59,10 @@ let topMovies = [
     res.send('Welcome to Kino Noir!');
   });
   
+  app.get('/movies', (req, res) => {
+    res.json(topMovies);
+  });
+  
   /*using express.static to serve documentation.html
   file from public folder*/
   app.use(express.static('public'));
@@ -68,18 +72,10 @@ const morgan = require('morgan');
 
 app.use(morgan('common'));
 
-app.get('/', (req, res) => {
-  res.send('Welcome to Kino Noir!');
-});
-
-/*app.get('/secreturl', (req, res) => {
-  res.send('This is a secret url with super top-secret content.');
-});
-
 app.listen(8080, () => {
-  console.log('Your app is listening on port 8080.');
+  console.log('Kino Noir is listening on port 8080.');
 });
-*/
+
 
 /*error-handling middleware function*/
 
