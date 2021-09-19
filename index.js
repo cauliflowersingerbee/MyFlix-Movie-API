@@ -47,7 +47,7 @@ let topMovies = [
 
   ];
   
-  //creating Express GET request to access movie data
+  //GET request to access movie data
   
   app.get('/movies', (req, res) => {
     res.json(topMovies);
