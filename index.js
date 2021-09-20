@@ -1,11 +1,11 @@
-/*requiring express*/
+//requirements and imports
 const express = require('express');
 const morgan = require('morgan');
 
 const app = express();
 
 
-/*creating data about top 10 movies*/
+//mockdata
 let topMovies = [
       {
         title: 'Moonlight',
@@ -50,37 +50,34 @@ let topMovies = [
 
   ];
   
-  //GET request to access movie data
+  //serving of html files and data
   
   app.get('/movies', (req, res) => {
     res.json(topMovies);
   });
 
-  /*creating GET request at '/' endpoint to return
-  default textual response*/ 
+
   app.get('/', (req, res) => {
     res.send('Welcome to Kino Noir!');
   });
   
-  app.get('/movies', (req, res) => {
-    res.json(topMovies);
-  });
-  
-  /*using express.static to serve documentation.html
-  file from public folder*/
   app.use(express.static('public'));
 
 
-app.use(morgan('common'));
-
-app.listen(8080, () => {
-  console.log('Kino Noir is listening on port 8080.');
-});
 
 
-/*error-handling middleware function*/
+  //middleware
+  app.use(morgan('common'));
 
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).send('Yikes, something isn\'t quite right!');
+  //error-handling middleware
+
+  app.use((err, req, res, next) => {
+      console.error(err.stack);
+      res.status(500).send('Yikes, something isn\'t quite right!');
+    });
+
+
+  //server/requests listener
+  app.listen(8080, () => {
+    console.log('Kino Noir is listening on port 8080.');
   });
