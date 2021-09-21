@@ -16,12 +16,71 @@
         personal information, and create a list of their favorite movies.
     </p>
 
-    <h1>2. API design</h1>
+    <h1>2.URL Endpoints & Request Methods</h1>
 
-        <table style="margin: 1em; padding: 2em; font-size: large;">
+    <table style="margin: 3em; padding: 2em; line-height: 2em;font-size: large; border-spacing: 1em; border: solid;">
+        <thead>
+            <tr>
+                <td>Request</td>
+                <td>URL</td>
+                <td>Method</td>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td>1. Get movies</td>
+                    <td>/movies</td>
+                    <td>GET</td>
+                </tr>
+                <tr>
+                    <td>2. Get movie by name</td>
+                    <td>/movies/[title]</td>
+                    <td>GET</td>
+                </tr>
+                <tr>
+                    <td>3. Get movie by genre</td>
+                    <td>/movies/[genres]</td>
+                    <td>GET</td>
+                </tr>
+                <tr>
+                    <td>4. Get data about director</td>
+                    <td>/movies/[directors]</td>
+                    <td>GET</td>
+                </tr>
+                <tr>
+                    <td>5. User registration</td>
+                    <td>/users/[registration]</td>
+                    <td>POST</td>
+                </tr>
+                <tr>
+                    <td>6. Updates user info (username)</td>
+                    <td>/users/[info]</td>
+                    <td>PUT</td>
+                </tr>
+                <tr>
+                    <td>7. Add to favorite</td>
+                    <td>/movies/[favorites]</td>
+                    <td>PUT</td>
+                </tr>
+                <tr>
+                    <td>8. Remove from favorite</td>
+                    <td>/movies/[favorites]</td>
+                    <td>DELETE</td>
+                </tr>
+                <tr>
+                    <td>9. User Deregistration</td>
+                    <td>/users/[registration]</td>
+                    <td>DELETE</td>
+                </tr>
+        </tbody>
+    </table>
+
+    <h1>3. Endpoint Documentation</h1>
+
+        <table style="margin: 1em; padding: 3em; line-height: 1.5em; font-size: large; border-spacing: 1em; border: solid;">
             <thead>
             <tr>
-                <td>Business logic</td>
+                <td>Endpoint logic</td>
                 <td>URL</td>
                 <td>HTTP method</td>
                 <td>Request body data format</td>
@@ -30,63 +89,63 @@
             </thead>
             <tbody>
             <tr>
-                <td>1. Return a list of ALL movies to the user</td>
+                <td>1. This endpoint returns a list of all movies to the user</td>
                 <td>/movies</td>
                 <td>GET</td>
                 <td>none</td>
                 <td>JSON object holding data about all the movies</td>
             </tr>
             <tr>
-                <td>2. Return data (description, genre, director, image URL, whether it’s featured or not) about a single movie by title to the user</td>
-                <td>/movies/[info]</td>
+                <td>2. This endpoint returns data (description, genre, director, image URL, whether it’s featured or not) about a single movie by title to the user</td>
+                <td>/movies/[title]</td>
                 <td>GET</td>
                 <td>none</td>
                 <td>JSON object holding data about movie info</td>
             </tr>
             <tr>
-                <td>3. Return data about a genre (description) by name/title (e.g., “Thriller”)</td>
+                <td>3. This endpoint returns data about a genre (description) by name/title (e.g., “Thriller”)</td>
                 <td>/movies/[genres]</td>
                 <td>GET</td>
                 <td>none</td>
                 <td>JSON object holding data about a movie genre</td>
             </tr>
             <tr> 
-                <td>4. Return data about a director (bio, birth year, death year) by name</td>
+                <td>4. This endpoint returns data about a director (bio, birth year, death year) by name</td>
                 <td>/movies/[directors]</td>
                 <td>GET</td>
                 <td>none</td>
                 <td>JSON object holding data about a movie director</td> 
             </tr>              
             <tr>
-                <td>5. Allow new users to register</td>
+                <td>5. This endpoint allows new users to register</td>
                 <td>/users/[registration]</td>
                 <td>POST</td>
                 <td>JSON object holding data about the user to add</td>
                 <td>JSON object holding data about the user that was added, including an ID</td>
             </tr> 
             <tr>
-                <td>6. Allow users to update their user info (username)</td>
+                <td>6. This endpoint allows users to update their user info (username)</td>
                 <td>/users/[info]</td>
                 <td>PUT</td>
                 <td>none</td>
-                <td>JSON object holding updated user info</td>
+                <td>A text message showing that the username has been updated</td>
             </tr> 
             <tr>
-                <td>7. Allow users to add a movie to their list of favorites (showing only a text that a movie has been added—more on this later)</td>
+                <td>7. This endpoint allows users to add a movie to their list of favorites (showing only a text that a movie has been added—more on this later)</td>
                 <td>/movies/[favorites]</td>
                 <td>PUT</td>
                 <td>none</td>
                 <td>A text message showing that a movie has been added to list of favorites</td>
             </tr> 
             <tr>
-                <td>8. Allow users to remove a movie from their list of favorites (showing only a text that a movie has been removed—more on this later)</td>
+                <td>8. This endpoint allows users to remove a movie from their list of favorites (showing only a text that a movie has been removed—more on this later)</td>
                 <td>/movies/[favorites]</td>
                 <td>DELETE</td>
                 <td>none</td>
                 <td>A text message showing that a movie has been removed from list of favorites</td>
             </tr> 
             <tr>
-                <td>9. Allow existing users to deregister (showing only a text that a user email has been removed—more on this later)</td>
+                <td>9. This endpoint allows existing users to deregister (showing only a text that a user email has been removed—more on this later)</td>
                 <td>/users/[registration]</td>
                 <td>DELETE</td>
                 <td>none</td>
