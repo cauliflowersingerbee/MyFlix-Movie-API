@@ -9,60 +9,70 @@ const app = express();
 //movie data
 let topMovies = [
       {
+        id: 1,
         title: 'Moonlight',
         director: 'Barry Jenkins',
         year: 2017,
         genre: ['LGBT', 'Drama', 'Indie', 'Coming-of-age']
       },
       {
+        id: 2,
         title: 'Hidden Figures',
         director: 'Theodore Melfi',
         year: 2017, 
         genre: ['Drama', 'Historical Fiction']
       },
       {
+        id: 3,
         title: 'Do the right thing',
         director: 'Spike Lee',
         year: 1989,
         genre: 'Comedy Drama'
       },
       {
+        id: 4,
         title: 'Poetic Justice',
         director: 'John Singleton',
         year: 1993,
         genre: ['Romance', 'Drama']
       },
       {
+        id: 5,
         title: 'Waiting to Exhale',
         director: 'Forest Whitaker',
         year: 1995,
         genre: ['Romance', 'Drama']
       },
       {
+        id: 6,
         title: 'Daughters of the Dust',
         director: 'Julie Dash',
         year: 1991,
         genre: ['Indie', 'Drama', 'Historical']
       },
       {
+        id: 7,
         title: 'Pariah',
         director: 'Dee Rees',
         year: 2011,
         genre: ['LGBT', 'Drama', 'Indie', 'Coming-of-age']
       },
       {
+        id: 8,
         title: 'Black Panther',
         director: 'Ryan Coogler',
         year: 2018,  
         genre: ['Action', 'Superhero', 'Science Fiction']
       },
       {
+        id: 9,
         title: 'Beasts of the southern wild',
         director: 'Benh Zeitlin',
         year: 2012,
         genre: ['Drama', 'Fantasy', 'Indie']
       },
       {
+        id: 10,
         title: 'Sorry to bother you',
         director: 'Boots Riley',
         year: 2018,  
@@ -100,7 +110,7 @@ app.get('/movies/:title', (req, res) => {
 });
 
 //3. Returns data about genre
-app.get('/movies/:genre', (req, res) => {
+app.get('/movies/genres/:genre', (req, res) => {
   res.json(topMovies.find((movie) =>
     { return movie.genre === req.params.genre }));
 });
