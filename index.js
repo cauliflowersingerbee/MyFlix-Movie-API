@@ -24,7 +24,7 @@ let topMovies = [
       },
       {
         id: 3,
-        title: 'Do the right thing',
+        title: 'Do the Right Thing',
         director: 'Spike Lee',
         year: 1989,
         genre: 'Comedy Drama'
@@ -76,25 +76,87 @@ let topMovies = [
         title: 'Sorry to bother you',
         director: 'Boots Riley',
         year: 2018,  
-        genre: ['Comedy', 'Fantasy', 'Science Fiction']
+        genre: 'Comedy'
       }
 
   ];
   
-  //serving of html files and data
+
+  let directors = [
+    {
+      director: 'Barry Jenkins',
+      born: 1979,
+      filmography: ['Medicine for Melancholy', 'If Beale Street Could Talk', 'Dear White People', 'The Underground Railroad']
+    },
+    {
+      director: 'Theodore Melfi',
+      born: 1970,
+      filmography: ['Winding Roads', 'St. Vincent', 'The Starling'] 
+    },  
+    {
+      director: 'Spike Lee',
+      born: 1957,
+      filmography: ['She\'s Gotta Have It', 'Inside Man', 'Da 5 Bloods'] 
+    },
+    {
+      director: 'John Singleton',
+      born: 1968,
+      died: 2019,
+      filmography: ['Boyz n the Hood', 'Higher Learning', '2 Fast 2 Furious']
+    },
+    {
+      director: 'Forest Whitaker',
+      born: 1961,
+      filmography: ['The Last King of Scotland', 'The Great Debaters', 'Arrival'] 
+    },
+    {
+      director: 'Julie Dash',
+      born: 1952,
+      filmography: ['Queen Sugar', 'Standing at the Scratch Line', 'The Rosa Parks Story']
+    },
+    {
+      director: 'Dee Rees',
+      born: 1977,
+      filmography: ['Mudbound', 'The Last Thing He Wanted', 'Colonial Gods'] 
+    },
+    {
+      director: 'Ryan Coogler',
+      born: 1986,
+      filmography: ['Fruitvale Station', 'Creed', 'Black Panther: Wakanda Forever']
+    },
+    {
+      director: 'Benh Zeitlin',
+      born: 1982,
+      filmography: ['Glory at Sea', 'Wendy'] 
+    },
+    {
+      director: 'Boots Riley',
+      born: 1971,
+      filmography: 'I\'m a Virgo'
+    },
+  ];
 
 
-  app.get('/', (req, res) => {
-    res.send('Welcome to Kino Noir!');
-  });
+  let users = [
+    {
+        username: 'Roots Bailey',
+        password: 'PinkCupcakes38',
+        email: 'rootsbailey@examplemail.com',
+        birthday: '01-09-1995',
+        favoriteMovies: ['3', '5', '9'],
+        id: '6',
+    },
+    {
+        username: 'Forest Riverdale',
+        password: 'onePotatotwopoTAto75',
+        email: 'riverforest@examplemail.com',
+        birthday: '06-06-2002',
+        favoriteMovies: ['1', '8'],
+        id: '4',
+    },
+];
 
-
-  //middleware
-  app.use(morgan('common'));
-  app.use(express.static('public'));
-  app.use(bodyParser.json());
-
-/*Express code routing all the endpoints:*/
+  /*Express code routing all the endpoints:*/
 
 
 //1. Returns a list of all movies 
@@ -110,41 +172,42 @@ app.get('/movies/:title', (req, res) => {
 });
 
 //3. Returns data about genre
-app.get('/movies/genres/:genre', (req, res) => {
+app.get('/genres/:genre', (req, res) => {
   res.json(topMovies.find((movie) =>
     { return movie.genre === req.params.genre }));
 });
 
+
 //4. Returns data about director
-app.get('/movies/:director', (req, res) => {
+app.get('/directors/:director', (req, res) => {
   res.json(topMovies.find((movie) =>
     { return movie.director === req.params.director }));
 });
 
 //5. Allows new users to register
-app.post('/users', (req, res) => {
+app.post('/users/:username', (req, res) => {
   let newUser = req.body;
 
-  if (!newUser.name) {
-    const message = 'Please add name';
-    res.status(400).send(message);
-  } else {
-    newUser.id = uuid.v4();
-    users.push(newUser);
-    res.status(201).send(newUser);
-  }
+    if (!newUser.username) {
+        const message = 'Please type your name!';
+        res.status(400).send(message);
+    } else {
+        users.push(newUser);
+        res.status(201).send(newUser);
+    }
+  res.send('New user succesfully registered!');
 });
 
 //6. Updates user info (username)
-app.put('/users/', (req, res) => {
-  let newUsername = req.body;
-
-  if (!newUsername.name) {
-    const message = 'Missing name in request body';
-    res.status(400).send(message);
+app.put('/users/:username', (req, res) => {
+  let user = users.find((user) => {
+      return user.username === req.params.username });
+  
+  if (!newUserName.username) {
+      res.status(400).send('Please type new name.');
   } else {
-    users.push(newUsername);
-    res.status(201).send(newUsername);
+      user.put(username);
+      res.status(201).send('Username successfully updated');
   }
 });
 
@@ -178,6 +241,20 @@ app.delete('/users', (req, res) => {
     res.status(201).send('User ' + req.params.id + ' was deregistered from Kino Noir.');
   }
 });
+
+  //serving of html files and data
+
+
+  app.get('/', (req, res) => {
+    res.send('Welcome to Kino Noir!');
+  });
+
+
+  //middleware
+  app.use(morgan('common'));
+  app.use(express.static('public'));
+  app.use(bodyParser.json());
+
 
  //error-handling middleware
 
