@@ -72,14 +72,14 @@ let movies = [
       },
       {
         id: 9,
-        title: 'Beasts of the southern wild',
+        title: 'Beasts of the Southern wild',
         director: 'Benh Zeitlin',
         year: 2012,
         genre: ['Drama', 'Fantasy', 'Indie']
       },
       {
         id: 10,
-        title: 'Sorry to bother you',
+        title: 'Sorry to Bother You',
         director: 'Boots Riley',
         year: 2018,  
         genre: 'Comedy'
