@@ -104,49 +104,49 @@
             </tr>
             <tr>
                 <td>3. This endpoint returns data about a genre (description) by name/title (e.g., “Thriller”)</td>
-                <td>/genres/[genre]</td>
+                <td>/movies/genres/[genre]</td>
                 <td>GET</td>
                 <td>none</td>
                 <td>JSON object holding data about a movie genre</td>
             </tr>
             <tr> 
                 <td>4. This endpoint returns data about a director (bio, birth year, death year) by name</td>
-                <td>/movies/[directors]</td>
+                <td>/movies/directors/[director]</td>
                 <td>GET</td>
                 <td>none</td>
                 <td>JSON object holding data about a movie director</td> 
             </tr>              
             <tr>
                 <td>5. This endpoint allows new users to register</td>
-                <td>/users/[registration]</td>
+                <td>/users</td>
                 <td>POST</td>
                 <td>JSON object holding data about the user to add</td>
                 <td>JSON object holding data about the user that was added, including an ID</td>
             </tr> 
             <tr>
                 <td>6. This endpoint allows users to update their user info (username)</td>
-                <td>/users/[info]</td>
+                <td>/users/[username]</td>
                 <td>PUT</td>
                 <td>none</td>
                 <td>A text message showing that the username has been updated</td>
             </tr> 
             <tr>
                 <td>7. This endpoint allows users to add a movie to their list of favorites (showing only a text that a movie has been added—more on this later)</td>
-                <td>/movies/[favorites]</td>
+                <td>/movies</td>
                 <td>PUT</td>
                 <td>none</td>
                 <td>A text message showing that a movie has been added to list of favorites</td>
             </tr> 
             <tr>
                 <td>8. This endpoint allows users to remove a movie from their list of favorites (showing only a text that a movie has been removed—more on this later)</td>
-                <td>/movies/[favorites]</td>
+                <td>/movies/[title]</td>
                 <td>DELETE</td>
                 <td>none</td>
                 <td>A text message showing that a movie has been removed from list of favorites</td>
             </tr> 
             <tr>
                 <td>9. This endpoint allows existing users to deregister (showing only a text that a user email has been removed—more on this later)</td>
-                <td>/users/[registration]</td>
+                <td>/users/[username]</td>
                 <td>DELETE</td>
                 <td>none</td>
                 <td>A text message showing that a user email has been removed</td>
