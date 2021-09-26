@@ -26,7 +26,7 @@ let movies = [
         title: 'Hidden Figures',
         director: 'Theodore Melfi',
         year: 2017, 
-        genre: 'Historical Fiction'
+        genre: 'Historical Drama'
       },
       {
         id: 3,
@@ -47,35 +47,35 @@ let movies = [
         title: 'Waiting to Exhale',
         director: 'Forest Whitaker',
         year: 1995,
-        genre: ['Romance', 'Drama']
+        genre: 'Romance'
       },
       {
         id: 6,
         title: 'Daughters of the Dust',
         director: 'Julie Dash',
         year: 1991,
-        genre: ['Indie', 'Drama', 'Historical']
+        genre: 'Historical Drama'
       },
       {
         id: 7,
         title: 'Pariah',
         director: 'Dee Rees',
         year: 2011,
-        genre: ['LGBT', 'Drama', 'Indie', 'Coming-of-age']
+        genre: 'Coming-of-age'
       },
       {
         id: 8,
         title: 'Black Panther',
         director: 'Ryan Coogler',
         year: 2018,  
-        genre: ['Action', 'Superhero', 'Science Fiction']
+        genre: 'Superhero'
       },
       {
         id: 9,
         title: 'Beasts of the Southern wild',
         director: 'Benh Zeitlin',
         year: 2012,
-        genre: ['Drama', 'Fantasy', 'Indie']
+        genre: 'Fantasy'
       },
       {
         id: 10,
