@@ -19,14 +19,14 @@ let movies = [
         title: 'Moonlight',
         director: 'Barry Jenkins',
         year: 2017,
-        genre: ['LGBT', 'Drama', 'Indie', 'Coming-of-age']
+        genre: 'Coming-of-age'
       },
       {
         id: 2,
         title: 'Hidden Figures',
         director: 'Theodore Melfi',
         year: 2017, 
-        genre: ['Drama', 'Historical Fiction']
+        genre: 'Historical Fiction'
       },
       {
         id: 3,
@@ -40,7 +40,7 @@ let movies = [
         title: 'Poetic Justice',
         director: 'John Singleton',
         year: 1993,
-        genre: ['Romance', 'Drama']
+        genre: 'Romance'
       },
       {
         id: 5,
