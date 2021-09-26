@@ -6,8 +6,14 @@ const express = require('express');
      
 const app = express();
 
+
+  //middleware
+  app.use(morgan('common'));
+  app.use(express.static('public'));
+  app.use(bodyParser.json());
+
 //movie data
-let topMovies = [
+let movies = [
       {
         id: 1,
         title: 'Moonlight',
@@ -144,7 +150,7 @@ let topMovies = [
         email: 'rootsbailey@examplemail.com',
         birthday: '01-09-1995',
         favoriteMovies: ['3', '5', '9'],
-        id: '6',
+        id: 1,
     },
     {
         username: 'Forest Riverdale',
@@ -152,7 +158,7 @@ let topMovies = [
         email: 'riverforest@examplemail.com',
         birthday: '06-06-2002',
         favoriteMovies: ['1', '8'],
-        id: '4',
+        id: 2,
     },
 ];
 
@@ -162,54 +168,53 @@ let topMovies = [
 //1. Returns a list of all movies 
 
 app.get('/movies', (req, res) => {
-  res.json(topMovies);
+  res.json(movies);
 });
 
 //2. Returns data about a single movie 
 app.get('/movies/:title', (req, res) => {
-  res.json(topMovies.find((movie) =>
+  res.json(movies.find((movie) =>
     { return movie.title === req.params.title}));
 });
 
 //3. Returns data about genre
-app.get('/genres/:genre', (req, res) => {
-  res.json(topMovies.find((movie) =>
-    { return movie.genre === req.params.genre }));
+app.get('/movies/genres/:genre', (req, res) => {
+  res.json(movies.find((movie) =>
+    { return movie.genre === req.params.genre}));
 });
 
 
+
 //4. Returns data about director
-app.get('/directors/:director', (req, res) => {
-  res.json(topMovies.find((movie) =>
+app.get('/movies/directors/:director', (req, res) => {
+  res.json(movies.find((movie) =>
     { return movie.director === req.params.director }));
 });
 
 //5. Allows new users to register
-app.post('/users/:username', (req, res) => {
+app.post('/users', (req, res) => {
   let newUser = req.body;
 
     if (!newUser.username) {
-        const message = 'Please type your name!';
+        const message = 'Please enter your username!';
         res.status(400).send(message);
     } else {
+        const message = 'New user succesfully registered!';
+        newUser.id = uuid.v4();
         users.push(newUser);
         res.status(201).send(newUser);
     }
-  res.send('New user succesfully registered!');
 });
 
 //6. Updates user info (username)
 app.put('/users/:username', (req, res) => {
-  let user = users.find((user) => {
-      return user.username === req.params.username });
-  
-  if (!newUserName.username) {
-      res.status(400).send('Please type new name.');
-  } else {
-      user.put(username);
-      res.status(201).send('Username successfully updated');
-  }
+  res.json(users.find((user) =>
+  { return user.username === req.params.username}));
+  console.log('Please update username!');
 });
+  
+  
+
 
 //7. Allows users to add movie to favorites
 
@@ -220,40 +225,39 @@ app.put('/movies', (req, res) => {
     const message = 'Please add to favorites';
     res.status(400).send(message);
   } else {
+    const message = 'Movie was added to favorites'
     movies.push(favorite);
-    const message = 'Movie was removed from favorites';
-    res.status(201).send(favorite);
+    res.status(201).send(message);
   }
 });
 
 //8. Allows users to remove movie from favorites
-app.delete('/movies', (req, res) => {
-  movies.pop(favorite);
-    res.status(201).send(favorite);
-});
 
-//9. Allows users to deregister from Kino Noir
-app.delete('/users', (req, res) => {
-  let user = users.find((user) => { return user.id === req.params.id });
-
-  if (user) {
-    users = users.filter((obj) => { return obj.id !== req.params.id });
-    res.status(201).send('User ' + req.params.id + ' was deregistered from Kino Noir.');
+  
+app.delete('/movies/:title', (req, res) => {
+  let favoriteMovie = movies.find((movie) => { return movie.title === req.params.title });
+  if (!favoriteMovie.title) {
+    const message = 'Please add title';
+    res.status(400).send(message);
+  } else {
+  const message = 'Movie was removed from favorites'
+    res.status(201).send(message);
   }
 });
 
-  //serving of html files and data
 
+//9. Allows users to deregister from Kino Noir
+app.delete('/users/:username', (req, res) => {
+  let user = users.find((user) => { return user.username === req.params.username });
+  if (!user.username) {
+    const message = 'Please add username';
+    res.status(400).send(message);
+  } else {
+  const message = 'User was removed from Kino Noir'
+    res.status(201).send(message);
+  }
+});
 
-  app.get('/', (req, res) => {
-    res.send('Welcome to Kino Noir!');
-  });
-
-
-  //middleware
-  app.use(morgan('common'));
-  app.use(express.static('public'));
-  app.use(bodyParser.json());
 
 
  //error-handling middleware
