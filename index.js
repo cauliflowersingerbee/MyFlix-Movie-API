@@ -5,13 +5,13 @@ const express = require('express');
       bodyParser = require('body-parser');
 
 const mongoose = require('mongoose');
-const Models = require('.models.js');
+const Models = require('./models.js');
       
 const Movies = Models.Movie;
 const Users = Models.User;
 
 mongoose.connect('mongodb://localhost:27017/myFlixMovieDB', {useNewUrlParser: true, useUnifiedTopology: true});
-      
+  
      
 const app = express();
 
@@ -21,6 +21,8 @@ const app = express();
   app.use(express.static('public'));
   app.use(bodyParser.json());
 
+
+  /*
 //movie data
 let movies = [
       {
@@ -174,10 +176,17 @@ let movies = [
   /*Express code routing all the endpoints:*/
 
 
-//1. Returns a list of all movies 
+/*1. Returns a list of all movies  */
 
 app.get('/movies', (req, res) => {
-  res.json(movies);
+  Movies.find()
+  .then((movies) => {
+    res.status(201).json(movies);
+  })
+  .catch((err) => {
+    console.error(err);
+    res.status(500).send('Error: ' + err);
+  });
 });
 
 //2. Returns data about a single movie 
