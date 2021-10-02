@@ -22,7 +22,7 @@ const app = express();
   app.use(bodyParser.json());
 
 
-/*1. Returns a list of all movies  */
+//1. Returns a list of all movies  
 
 app.get('/movies', (req, res) => {
   Movies.find()
