@@ -84,9 +84,10 @@ app.post('/users', (req, res) => {
         Users
           .create({
             Username: req.body.Username,
+            Birthday: req.body.Birthday,
             Password: req.body.Password,
-            Email: req.body.Email,
-            Birthday: req.body.Birthday
+            Email: req.body.Email
+            
           })
           .then((user) =>{res.status(201).json(user) })
         .catch((error) => {
