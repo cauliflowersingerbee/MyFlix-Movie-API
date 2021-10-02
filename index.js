@@ -126,22 +126,25 @@ app.put('/users/:Username', (req, res) => {
 
   
   
-/*
+
 
 //7. Allows users to add movie to favorites
 
-app.put('/movies', (req, res) => {
-  let favorite= req.body;
-
-  if (!favorite.name) {
-    const message = 'Please add to favorites';
-    res.status(400).send(message);
-  } else {
-    const message = 'Movie was added to favorites'
-    movies.push(favorite);
-    res.status(201).send(message);
-  }
+app.post('/users/:Username/movies/:MovieID', (req, res) => {
+  Users.findOneAndUpdate({ Username: req.params.Username }, {
+     $push: { FavoriteMovies: req.params.MovieID }
+   },
+   { new: true }, // This line makes sure that the updated document is returned
+  (err, updatedUser) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Error: ' + err);
+    } else {
+      res.json(updatedUser);
+    }
+  });
 });
+/*
 
 //8. Allows users to remove movie from favorites
 
