@@ -200,10 +200,10 @@ app.get('/movies/:Title', (req, res) => {
       res.status(500).send('Error: ' + err);
     });
 });
-/*
+
 //3. Returns data about genre
-app.get('/movies/genres/:genre', (req, res) => {
-  Movies.find({ Genre: req.params.Genre })
+app.get('/movies/genres/:Genre', (req, res) => {
+  Movies.findOne({ Genre: req.params.Genre })
     .then ((movie) => {
       res.json(movie);
     })
@@ -211,8 +211,9 @@ app.get('/movies/genres/:genre', (req, res) => {
       console.error(err);
       res.status(500).send('Error: ' + err);
     });
+  });
 
-
+/*
 
 //4. Returns data about director
 app.get('/movies/directors/:director', (req, res) => {
