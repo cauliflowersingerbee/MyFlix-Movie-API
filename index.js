@@ -87,7 +87,6 @@ app.post('/users', (req, res) => {
             Birthday: req.body.Birthday,
             Password: req.body.Password,
             Email: req.body.Email
-            
           })
           .then((user) =>{res.status(201).json(user) })
         .catch((error) => {
@@ -102,17 +101,32 @@ app.post('/users', (req, res) => {
     });
 });
 
-/*
+
 
 //6. Updates user info (username)
-app.put('/users/:username', (req, res) => {
-  res.json(users.find((user) =>
-  { return user.username === req.params.username}));
-  console.log('Please update username!');
+app.put('/users/:Username', (req, res) => {
+  Users.findOneAndUpdate({ Username: req.params.Username }, { $set:
+    {
+      Username: req.body.Username,
+      Password: req.body.Password,
+      Email: req.body.Email,
+      Birthday: req.body.Birthday
+    }
+  },
+  { new: true }, 
+  (err, updatedUser) => {
+    if(err) {
+      console.error(err);
+      res.status(500).send('Error: ' + err);
+    } else {
+      res.json(updatedUser);
+    }
+  });
 });
-  
-  
 
+  
+  
+/*
 
 //7. Allows users to add movie to favorites
 
