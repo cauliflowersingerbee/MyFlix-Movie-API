@@ -190,16 +190,27 @@ app.get('/movies', (req, res) => {
 });
 
 //2. Returns data about a single movie 
-app.get('/movies/:title', (req, res) => {
-  res.json(movies.find((movie) =>
-    { return movie.title === req.params.title}));
+app.get('/movies/:Title', (req, res) => {
+  Movies.findOne({ Title: req.params.Title })
+    .then ((movie) => {
+      res.json(movie);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send('Error: ' + err);
+    });
 });
-
+/*
 //3. Returns data about genre
 app.get('/movies/genres/:genre', (req, res) => {
-  res.json(movies.find((movie) =>
-    { return movie.genre === req.params.genre}));
-});
+  Movies.find({ Genre: req.params.Genre })
+    .then ((movie) => {
+      res.json(movie);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send('Error: ' + err);
+    });
 
 
 
@@ -276,7 +287,7 @@ app.delete('/users/:username', (req, res) => {
   }
 });
 
-
+*/
 
  //error-handling middleware
 
