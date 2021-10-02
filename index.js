@@ -49,6 +49,20 @@ app.get('/movies/:Title', (req, res) => {
 
 //3. Returns data about genre
 app.get('/movies/genres/:Genre', (req, res) => {
+  Movies.find({ 'Genre.Name': req.params.Genre })
+    .then ((movie) => {
+      res.json(movie);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send('Error: ' + err);
+    });
+  });
+
+
+
+//4. Returns data about director
+app.get('/movies/directors/:Director', (req, res) => {
   Movies.findOne({ 'Genre.Name': req.params.Genre })
     .then ((movie) => {
       res.json(movie);
@@ -60,13 +74,6 @@ app.get('/movies/genres/:Genre', (req, res) => {
   });
 
 /*
-
-//4. Returns data about director
-app.get('/movies/directors/:director', (req, res) => {
-  res.json(movies.find((movie) =>
-    { return movie.director === req.params.director }));
-});
-
 //5. Allows new users to register
 app.post('/users', (req, res) => {
   let newUser = req.body;
