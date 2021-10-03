@@ -93,7 +93,27 @@
                 <td>/movies</td>
                 <td>GET</td>
                 <td>none</td>
-                <td>JSON object holding data about all the movies</td>
+                <td>JSON object holding data about all the movies
+                    e.g: 
+                    {
+                        "Genre" : {
+                            "Name" : "Comedy Drama",
+                            "Description" : "This category consists of movies that contain elements of comedy films, in addition to being a drama. Comedy (from the Greek: κωμῳδία, kōmōdía) is a genre of fiction that consists of discourses or works intended to be humorous or amusing by inducing laughter, especially in theatre, film, stand-up comedy, television, radio, books, or any other entertainment medium. Drama is the specific mode of fiction represented in performance: a play, opera, mime, ballet, etc., performed in a theatre, or on radio or television."
+                        },
+                        "Director" : {
+                            "Name" : "Spike Lee",
+                            "Bio" : "Spike Lee's work has continually explored race relations, colorism in the black community, the role of media in contemporary life, urban crime and poverty, and other political issues. He has won numerous accolades for his work, including an Academy Award for Best Adapted Screenplay, a Student Academy Award, a BAFTA Award for Best Adapted Screenplay, two Emmy Awards, two Peabody Awards, and the Cannes Grand Prix. He has also received an Academy Honorary Award, an Honorary BAFTA Award, an Honorary César, and the Dorothy and Lillian Gish Prize. Lee's films Do the Right Thing, Malcolm X, 4 Little Girls and She's Gotta Have It were each selected by the Library of Congress for preservation in the National Film Registry for being culturally, historically, or aesthetically significant.",
+                            "Birth" : "1957"
+                        },
+                        "_id" : "61542c5b76df2b4139653dc1",
+	                    "Title" : "Chi-Raq",
+	                    "Description" : "Chi-Raq (/ʃaɪˈræk/) is a 2015 American musical crime comedy drama film, directed and produced by Spike Lee and co-written by Lee and Kevin Willmott. Set in Chicago, the film focuses on the gang violence prevalent in neighborhoods on the city's south side, particularly the Englewood neighborhood.",
+	                    "ImagePath" : " https://upload.wikimedia.org/wikipedia/en/e/e7/ChiRaqMoviePoster.png",
+                        "Featured" : false
+                    }
+
+                    
+                </td>
             </tr>
             <tr>
                 <td>2. This endpoint returns data (description, genre, director, image URL, whether it’s featured or not) about a single movie by title to the user</td>
