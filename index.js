@@ -119,7 +119,8 @@ app.put('/users/:Username', (req, res) => {
       console.error(err);
       res.status(500).send('Error: ' + err);
     } else {
-      res.json(updatedUser);
+      const message = req.params.Username + ' successfully updated!'
+      res.status(201).send(message);
     }
   });
 });
@@ -140,7 +141,8 @@ app.post('/users/:Username/movies/:MovieID', (req, res) => {
       console.error(err);
       res.status(500).send('Error: ' + err);
     } else {
-      res.json(updatedUser);
+      const message = 'Movie successfully added to favorites!'
+      res.status(201).send(message);
     }
   });
 });
@@ -159,7 +161,8 @@ app.delete('/users/:Username/movies/:MovieID', (req, res) => {
         console.error(err);
         res.status(500).send('Error: ' + err);
       } else {
-        res.json(updatedUser);
+        const message = 'Movie successfully removed from favorites!'
+        res.status(201).send(message);
       }
     });
   });
