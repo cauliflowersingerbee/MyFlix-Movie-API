@@ -150,7 +150,6 @@ app.post('/users/:Username/movies/:MovieID', (req, res) => {
 
   
 app.delete('/users/:Username/movies/:MovieID', (req, res) => {
-  app.post('/users/:Username/movies/:MovieID', (req, res) => {
     Users.findOneAndUpdate({ Username: req.params.Username }, {
        $pull: { FavoriteMovie: req.params.MovieID }
      },
