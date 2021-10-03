@@ -144,23 +144,28 @@ app.post('/users/:Username/movies/:MovieID', (req, res) => {
     }
   });
 });
-/*
+
 
 //8. Allows users to remove movie from favorites
 
   
-app.delete('/movies/:title', (req, res) => {
-  let favoriteMovie = movies.find((movie) => { return movie.title === req.params.title });
-  if (!favoriteMovie.title) {
-    const message = 'Please add title';
-    res.status(400).send(message);
-  } else {
-  const message = 'Movie was removed from favorites'
-    res.status(201).send(message);
-  }
-});
+app.delete('/users/:Username/movies/:MovieID', (req, res) => {
+  app.post('/users/:Username/movies/:MovieID', (req, res) => {
+    Users.findOneAndUpdate({ Username: req.params.Username }, {
+       $pull: { FavoriteMovie: req.params.MovieID }
+     },
+     { new: true }, // This line makes sure that the updated document is returned
+    (err, updatedUser) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send('Error: ' + err);
+      } else {
+        res.json(updatedUser);
+      }
+    });
+  });
 
-
+/*
 //9. Allows users to deregister from Kino Noir
 app.delete('/users/:username', (req, res) => {
   let user = users.find((user) => { return user.username === req.params.username });
