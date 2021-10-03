@@ -85,7 +85,6 @@
                 <td>HTTP method</td>
                 <td>Request Body Data Format</td>
                 <td>Response Body Data Format</td>
-                <td>Response example</td>
             </tr>
             </thead>
             <tbody>
@@ -94,126 +93,132 @@
                 <td>/movies</td>
                 <td>GET</td>
                 <td>none</td>
-                <td>JSON object holding data about all the movies</td>
-                <td style="line-height: 1em; font-size: smaller;">
+                <td style="line-height: 1em; font-size: smaller;">A JSON object holding data about all the movies. For example:
+                <p>
+                    <br>
                     {
-                    <p style="text-indent: 20px">"Genre" : {</p>
-                            <p style="text-indent: 40px">"Name" : "Comedy Drama",</p>
-                            <p style="text-indent: 40px">"Description" : "This category consists of movies that contain elements of comedy films, in addition to being a drama. Comedy (from the Greek: κωμῳδία, kōmōdía) is a genre of fiction that consists of discourses or works intended to be humorous or amusing by inducing laughter, especially in theatre, film, stand-up comedy, television, radio, books, or any other entertainment medium. Drama is the specific mode of fiction represented in performance: a play, opera, mime, ballet, etc., performed in a theatre, or on radio or television.", </p>
+                        <p style="text-indent: 20px">"Title" : "Hidden Figures",</p>
+                            <p style="text-indent: 20px">"Description" : "The story of a team of...",</p>
+                            <p style="text-indent: 20px">"Genre" : {</p>
+                                <p style="text-indent: 40px">"Name" : "Historical Drama",</p>
+                                <p style="text-indent: 40px"> "Description": "A historical drama is..."</p>
                             <p style="text-indent: 80px">},</p>
                     <p style="text-indent: 20px">"Director" : {</p>
-                            <p style="text-indent: 40px">"Name" : "Spike Lee",</p>
-                            <p style="text-indent: 40px">"Bio" : "Spike Lee's work has continually explored race relations, colorism in the black community, the role of media in contemporary life, urban crime and poverty, and other political issues. He has won numerous accolades for his work, including an Academy Award for Best Adapted Screenplay, a Student Academy Award, a BAFTA Award for Best Adapted Screenplay, two Emmy Awards, two Peabody Awards, and the Cannes Grand Prix. He has also received an Academy Honorary Award, an Honorary BAFTA Award, an Honorary César, and the Dorothy and Lillian Gish Prize. Lee's films Do the Right Thing, Malcolm X, 4 Little Girls and She's Gotta Have It were each selected by the Library of Congress for preservation in the National Film Registry for being culturally, historically, or aesthetically significant.",</p>
-                            <p style="text-indent: 40px">"Birth" : "1957",</p>
+                            <p style="text-indent: 40px">"Name" : "Theodore Melfi",</p>
+                            <p style="text-indent: 40px">"Bio" : "Theodore Melfi was born on...",</p>
+                            <p style="text-indent: 40px">"Birth" : "1970",</p>
                             <p style="text-indent: 80px">},</p>
-                    <p style="text-indent: 20px">"_id" : "61542c5b76df2b4139653dc1",</p>
-                    <p style="text-indent: 20px">"Title" : "Chi-Raq",</p>
-                    <p style="text-indent: 20px">"Description" : "Chi-Raq (/ʃaɪˈræk/) is a 2015 American musical crime comedy drama film, directed and produced by Spike Lee and co-written by Lee and Kevin Willmott. Set in Chicago, the film focuses on the gang violence prevalent in neighborhoods on the city's south side, particularly the Englewood neighborhood.",</p>
-                    <p style="text-indent: 20px">"ImagePath" : " https://upload.wikimedia.org/wikipedia/en/e/e7/ChiRaqMoviePoster.png",</p>
+                    <p style="text-indent: 20px">"_id" : "61541fd38fc0aeb45bdf98a2"</p>
                     <p style="text-indent: 20px">"Featured" : false</p>
                     }
+                </p>
+                    
                 </td>
-                
             </tr>
             <tr>
                 <td>2. This endpoint returns data (description, genre, director, image URL, whether it’s featured or not) about a single movie by title to the user</td>
-                <td>/movies/[title]</td>
+                <td>/movies/[Title]</td>
                 <td>GET</td>
                 <td>none</td>
-                <td>JSON object holding data about movie info</td>
-                <td style="line-height: 1em; font-size: smaller;">
-                    {
-                    <p style="text-indent: 20px">"Genre" : {</p>
-                            <p style="text-indent: 40px">"Name" : "Comedy Drama",</p>
-                            <p style="text-indent: 40px">"Description" : "This category consists of movies that contain elements of comedy films, in addition to being a drama. Comedy (from the Greek: κωμῳδία, kōmōdía) is a genre of fiction that consists of discourses or works intended to be humorous or amusing by inducing laughter, especially in theatre, film, stand-up comedy, television, radio, books, or any other entertainment medium. Drama is the specific mode of fiction represented in performance: a play, opera, mime, ballet, etc., performed in a theatre, or on radio or television.", </p>
-                            <p style="text-indent: 80px">},</p>
-                    <p style="text-indent: 20px">"Director" : {</p>
-                            <p style="text-indent: 40px">"Name" : "Spike Lee",</p>
-                            <p style="text-indent: 40px">"Bio" : "Spike Lee's work has continually explored race relations, colorism in the black community, the role of media in contemporary life, urban crime and poverty, and other political issues. He has won numerous accolades for his work, including an Academy Award for Best Adapted Screenplay, a Student Academy Award, a BAFTA Award for Best Adapted Screenplay, two Emmy Awards, two Peabody Awards, and the Cannes Grand Prix. He has also received an Academy Honorary Award, an Honorary BAFTA Award, an Honorary César, and the Dorothy and Lillian Gish Prize. Lee's films Do the Right Thing, Malcolm X, 4 Little Girls and She's Gotta Have It were each selected by the Library of Congress for preservation in the National Film Registry for being culturally, historically, or aesthetically significant.",</p>
-                            <p style="text-indent: 40px">"Birth" : "1957",</p>
-                            <p style="text-indent: 80px">},</p>
-                    <p style="text-indent: 20px">"_id" : "61542c5b76df2b4139653dc1",</p>
-                    <p style="text-indent: 20px">"Title" : "Chi-Raq",</p>
-                    <p style="text-indent: 20px">"Description" : "Chi-Raq (/ʃaɪˈræk/) is a 2015 American musical crime comedy drama film, directed and produced by Spike Lee and co-written by Lee and Kevin Willmott. Set in Chicago, the film focuses on the gang violence prevalent in neighborhoods on the city's south side, particularly the Englewood neighborhood.",</p>
-                    <p style="text-indent: 20px">"ImagePath" : " https://upload.wikimedia.org/wikipedia/en/e/e7/ChiRaqMoviePoster.png",</p>
-                    <p style="text-indent: 20px">"Featured" : false</p>
-                    }
+                <td style="line-height: 1em; font-size: smaller;">A JSON object holding data about all the movies. For example:
+                    <p>
+                        <br>
+                        {
+                            <p style="text-indent: 20px">"Title" : "Hidden Figures",</p>
+                                <p style="text-indent: 20px">"Description" : "The story of a team of...",</p>
+                                <p style="text-indent: 20px">"Genre" : {</p>
+                                    <p style="text-indent: 40px">"Name" : "Historical Drama",</p>
+                                    <p style="text-indent: 40px"> "Description": "A historical drama is..."</p>
+                                <p style="text-indent: 80px">},</p>
+                        <p style="text-indent: 20px">"Director" : {</p>
+                                <p style="text-indent: 40px">"Name" : "Theodore Melfi",</p>
+                                <p style="text-indent: 40px">"Bio" : "Theodore Melfi was born on...",</p>
+                                <p style="text-indent: 40px">"Birth" : "1970",</p>
+                                <p style="text-indent: 80px">},</p>
+                        <p style="text-indent: 20px">"_id" : "61541fd38fc0aeb45bdf98a2"</p>
+                        <p style="text-indent: 20px">"Featured" : false</p>
+                        }
+                    </p>
                 </td>
             </tr>
             <tr>
-                <td>3. This endpoint returns data about a genre (description) by name/title (e.g., “Thriller”)</td>
-                <td>/movies/genres/[genre]</td>
+                <td>3. This endpoint returns data about a genre (description) by name (e.g., “Comedy”)</td>
+                <td>/movies/genres/[Genre]</td>
                 <td>GET</td>
                 <td>none</td>
-                <td>JSON object holding data about a movie genre</td>
-                <td style="line-height: 1em; font-size: smaller;">
-                    {
-                    <p style="text-indent: 20px">"Genre" : {</p>
-                            <p style="text-indent: 40px">"Name" : "Comedy Drama",</p>
-                            <p style="text-indent: 40px">"Description" : "This category consists of movies that contain elements of comedy films, in addition to being a drama. Comedy (from the Greek: κωμῳδία, kōmōdía) is a genre of fiction that consists of discourses or works intended to be humorous or amusing by inducing laughter, especially in theatre, film, stand-up comedy, television, radio, books, or any other entertainment medium. Drama is the specific mode of fiction represented in performance: a play, opera, mime, ballet, etc., performed in a theatre, or on radio or television.", </p>
-                            <p style="text-indent: 80px">},</p>
-                    <p style="text-indent: 20px">"Director" : {</p>
-                            <p style="text-indent: 40px">"Name" : "Spike Lee",</p>
-                            <p style="text-indent: 40px">"Bio" : "Spike Lee's work has continually explored race relations, colorism in the black community, the role of media in contemporary life, urban crime and poverty, and other political issues. He has won numerous accolades for his work, including an Academy Award for Best Adapted Screenplay, a Student Academy Award, a BAFTA Award for Best Adapted Screenplay, two Emmy Awards, two Peabody Awards, and the Cannes Grand Prix. He has also received an Academy Honorary Award, an Honorary BAFTA Award, an Honorary César, and the Dorothy and Lillian Gish Prize. Lee's films Do the Right Thing, Malcolm X, 4 Little Girls and She's Gotta Have It were each selected by the Library of Congress for preservation in the National Film Registry for being culturally, historically, or aesthetically significant.",</p>
-                            <p style="text-indent: 40px">"Birth" : "1957",</p>
-                            <p style="text-indent: 80px">},</p>
-                    <p style="text-indent: 20px">"_id" : "61542c5b76df2b4139653dc1",</p>
-                    <p style="text-indent: 20px">"Title" : "Chi-Raq",</p>
-                    <p style="text-indent: 20px">"Description" : "Chi-Raq (/ʃaɪˈræk/) is a 2015 American musical crime comedy drama film, directed and produced by Spike Lee and co-written by Lee and Kevin Willmott. Set in Chicago, the film focuses on the gang violence prevalent in neighborhoods on the city's south side, particularly the Englewood neighborhood.",</p>
-                    <p style="text-indent: 20px">"ImagePath" : " https://upload.wikimedia.org/wikipedia/en/e/e7/ChiRaqMoviePoster.png",</p>
-                    <p style="text-indent: 20px">"Featured" : false</p>
-                    }
+                <td style="line-height: 1em; font-size: smaller;">A JSON object holding data about all the movies. For example:
+                    <p>
+                        <br>
+                        {
+                            <p style="text-indent: 20px">"Title" : "Hidden Figures",</p>
+                                <p style="text-indent: 20px">"Description" : "The story of a team of...",</p>
+                                <p style="text-indent: 20px">"Genre" : {</p>
+                                    <p style="text-indent: 40px">"Name" : "Historical Drama",</p>
+                                    <p style="text-indent: 40px"> "Description": "A historical drama is..."</p>
+                                <p style="text-indent: 80px">},</p>
+                        <p style="text-indent: 20px">"Director" : {</p>
+                                <p style="text-indent: 40px">"Name" : "Theodore Melfi",</p>
+                                <p style="text-indent: 40px">"Bio" : "Theodore Melfi was born on...",</p>
+                                <p style="text-indent: 40px">"Birth" : "1970",</p>
+                                <p style="text-indent: 80px">},</p>
+                        <p style="text-indent: 20px">"_id" : "61541fd38fc0aeb45bdf98a2"</p>
+                        <p style="text-indent: 20px">"Featured" : false</p>
+                        }
+                    </p>
                 </td>
+
             </tr>
+            
             <tr> 
                 <td>4. This endpoint returns data about a director (bio, birth year, death year) by name</td>
-                <td>/movies/directors/[director]</td>
+                <td>/movies/directors/[Director]</td>
                 <td>GET</td>
                 <td>none</td>
-                <td>JSON object holding data about a movie director</td> 
-                <td style="line-height: 1em; font-size: smaller;">
-                    {
-                    <p style="text-indent: 20px">"Genre" : {</p>
-                            <p style="text-indent: 40px">"Name" : "Comedy Drama",</p>
-                            <p style="text-indent: 40px">"Description" : "This category consists of movies that contain elements of comedy films, in addition to being a drama. Comedy (from the Greek: κωμῳδία, kōmōdía) is a genre of fiction that consists of discourses or works intended to be humorous or amusing by inducing laughter, especially in theatre, film, stand-up comedy, television, radio, books, or any other entertainment medium. Drama is the specific mode of fiction represented in performance: a play, opera, mime, ballet, etc., performed in a theatre, or on radio or television.", </p>
-                            <p style="text-indent: 80px">},</p>
-                    <p style="text-indent: 20px">"Director" : {</p>
-                            <p style="text-indent: 40px">"Name" : "Spike Lee",</p>
-                            <p style="text-indent: 40px">"Bio" : "Spike Lee's work has continually explored race relations, colorism in the black community, the role of media in contemporary life, urban crime and poverty, and other political issues. He has won numerous accolades for his work, including an Academy Award for Best Adapted Screenplay, a Student Academy Award, a BAFTA Award for Best Adapted Screenplay, two Emmy Awards, two Peabody Awards, and the Cannes Grand Prix. He has also received an Academy Honorary Award, an Honorary BAFTA Award, an Honorary César, and the Dorothy and Lillian Gish Prize. Lee's films Do the Right Thing, Malcolm X, 4 Little Girls and She's Gotta Have It were each selected by the Library of Congress for preservation in the National Film Registry for being culturally, historically, or aesthetically significant.",</p>
-                            <p style="text-indent: 40px">"Birth" : "1957",</p>
-                            <p style="text-indent: 80px">},</p>
-                    <p style="text-indent: 20px">"_id" : "61542c5b76df2b4139653dc1",</p>
-                    <p style="text-indent: 20px">"Title" : "Chi-Raq",</p>
-                    <p style="text-indent: 20px">"Description" : "Chi-Raq (/ʃaɪˈræk/) is a 2015 American musical crime comedy drama film, directed and produced by Spike Lee and co-written by Lee and Kevin Willmott. Set in Chicago, the film focuses on the gang violence prevalent in neighborhoods on the city's south side, particularly the Englewood neighborhood.",</p>
-                    <p style="text-indent: 20px">"ImagePath" : " https://upload.wikimedia.org/wikipedia/en/e/e7/ChiRaqMoviePoster.png",</p>
-                    <p style="text-indent: 20px">"Featured" : false</p>
-                    }
-                </td>
+                <td style="line-height: 1em; font-size: smaller;">A JSON object holding data about a certain director. For example:
+            
+                        <p>
+                            <br>
+                            {
+                                <p style="text-indent: 20px">"Director" : "John Singleton",</p>
+                                <p style="text-indent: 20px">"Bio" : "Son of Danny Singleton, a mortgage broker, and Sheila Ward, a pharmaceutical company sales executive...",</p>
+                                <p style="text-indent: 20px">"Birth" : "1968",</p>
+                                <p style="text-indent: 20px">"Death" : "2019"</p>
+                            
+                            }
+                        </p>
+                    </td> 
+    
             </tr>              
             <tr>
                 <td>5. This endpoint allows new users to register</td>
                 <td>/users</td>
                 <td>POST</td>
-                <td>JSON object holding data about the user to add</td>
-                <td>JSON object holding data about the user that was added, including an ID</td>
-                <td style="line-height: 1em; font-size: smaller;">
-                    {
-                    <p style="text-indent: 20px">"Genre" : {</p>
-                            <p style="text-indent: 40px">"Name" : "Comedy Drama",</p>
-                            <p style="text-indent: 40px">"Description" : "This category consists of movies that contain elements of comedy films, in addition to being a drama. Comedy (from the Greek: κωμῳδία, kōmōdía) is a genre of fiction that consists of discourses or works intended to be humorous or amusing by inducing laughter, especially in theatre, film, stand-up comedy, television, radio, books, or any other entertainment medium. Drama is the specific mode of fiction represented in performance: a play, opera, mime, ballet, etc., performed in a theatre, or on radio or television.", </p>
-                            <p style="text-indent: 80px">},</p>
-                    <p style="text-indent: 20px">"Director" : {</p>
-                            <p style="text-indent: 40px">"Name" : "Spike Lee",</p>
-                            <p style="text-indent: 40px">"Bio" : "Spike Lee's work has continually explored race relations, colorism in the black community, the role of media in contemporary life, urban crime and poverty, and other political issues. He has won numerous accolades for his work, including an Academy Award for Best Adapted Screenplay, a Student Academy Award, a BAFTA Award for Best Adapted Screenplay, two Emmy Awards, two Peabody Awards, and the Cannes Grand Prix. He has also received an Academy Honorary Award, an Honorary BAFTA Award, an Honorary César, and the Dorothy and Lillian Gish Prize. Lee's films Do the Right Thing, Malcolm X, 4 Little Girls and She's Gotta Have It were each selected by the Library of Congress for preservation in the National Film Registry for being culturally, historically, or aesthetically significant.",</p>
-                            <p style="text-indent: 40px">"Birth" : "1957",</p>
-                            <p style="text-indent: 80px">},</p>
-                    <p style="text-indent: 20px">"_id" : "61542c5b76df2b4139653dc1",</p>
-                    <p style="text-indent: 20px">"Title" : "Chi-Raq",</p>
-                    <p style="text-indent: 20px">"Description" : "Chi-Raq (/ʃaɪˈræk/) is a 2015 American musical crime comedy drama film, directed and produced by Spike Lee and co-written by Lee and Kevin Willmott. Set in Chicago, the film focuses on the gang violence prevalent in neighborhoods on the city's south side, particularly the Englewood neighborhood.",</p>
-                    <p style="text-indent: 20px">"ImagePath" : " https://upload.wikimedia.org/wikipedia/en/e/e7/ChiRaqMoviePoster.png",</p>
-                    <p style="text-indent: 20px">"Featured" : false</p>
-                    }
+                <td style="line-height: 1em; font-size: smaller;">JSON object holding data about the user to add. For example:
+        
+                        <p>
+                            <br>
+                            {
+                                <p style="text-indent: 20px">"Username" : "Matt Ajira",</p>
+                            
+                            }
+                        </p>
+                    </td> 
+
                 </td>
+                <td style="line-height: 1em; font-size: smaller;">JSON object holding data about the user that was added, including an ID. For example:
+                    <p>
+                        <br>
+                        {
+                            <p style="text-indent: 20px">"_id" : "6154c31db4e698fg8348d8fa9",</p>
+                            <p style="text-indent: 20px">"Username" : "Matt Ajira",</p>
+                            <p style="text-indent: 20px">"Birthday" : ISODate("1984-05-15T00:00:00Z"),</p>
+                            <p style="text-indent: 20px">"Password" : "Kittensandpuppies68",</p>
+                            <p style="text-indent: 20px">"Email" : "mattajira@examplemail.com",</p>
+                        
+                        }
+                    </p>
+                </td> 
+                
             </tr> 
             <tr>
                 <td>6. This endpoint allows users to update their user info (username)</td>
