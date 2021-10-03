@@ -164,20 +164,24 @@ app.delete('/users/:Username/movies/:MovieID', (req, res) => {
     });
   });
 
-/*
-//9. Allows users to deregister from Kino Noir
-app.delete('/users/:username', (req, res) => {
-  let user = users.find((user) => { return user.username === req.params.username });
-  if (!user.username) {
-    const message = 'Please add username';
-    res.status(400).send(message);
-  } else {
-  const message = 'User was removed from Kino Noir'
-    res.status(201).send(message);
-  }
-});
 
-*/
+
+//9. Allows users to deregister from Kino Noir
+
+app.delete('/users/:Username', (req, res) => {
+  Users.findOneAndRemove({ Username: req.params.Username })
+    .then((user) => {
+      if (!user) {
+        res.status(400).send(req.params.Username + ' was not found');
+      } else {
+        res.status(200).send(req.params.Username + ' was deleted.');
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send('Error: ' + err);
+    });
+});
 
  //error-handling middleware
 
