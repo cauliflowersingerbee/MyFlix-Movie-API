@@ -80,11 +80,12 @@
         <table style="margin: 1em; padding: 3em; line-height: 1.5em; font-size: large; border-spacing: 1em; border: solid;">
             <thead>
             <tr>
-                <td>Endpoint logic</td>
+                <td>Endpoint Logic</td>
                 <td>URL</td>
                 <td>HTTP method</td>
-                <td>Request body data format</td>
-                <td>Response body data format</td>
+                <td>Request Body Data Format</td>
+                <td>Response Body Data Format</td>
+                <td>Response example</td>
             </tr>
             </thead>
             <tbody>
@@ -93,27 +94,26 @@
                 <td>/movies</td>
                 <td>GET</td>
                 <td>none</td>
-                <td>JSON object holding data about all the movies
-                    e.g: 
+                <td>JSON object holding data about all the movies</td>
+                <td style="line-height: 1em; font-size: smaller;">
                     {
-                        "Genre" : {
-                            "Name" : "Comedy Drama",
-                            "Description" : "This category consists of movies that contain elements of comedy films, in addition to being a drama. Comedy (from the Greek: κωμῳδία, kōmōdía) is a genre of fiction that consists of discourses or works intended to be humorous or amusing by inducing laughter, especially in theatre, film, stand-up comedy, television, radio, books, or any other entertainment medium. Drama is the specific mode of fiction represented in performance: a play, opera, mime, ballet, etc., performed in a theatre, or on radio or television."
-                        },
-                        "Director" : {
-                            "Name" : "Spike Lee",
-                            "Bio" : "Spike Lee's work has continually explored race relations, colorism in the black community, the role of media in contemporary life, urban crime and poverty, and other political issues. He has won numerous accolades for his work, including an Academy Award for Best Adapted Screenplay, a Student Academy Award, a BAFTA Award for Best Adapted Screenplay, two Emmy Awards, two Peabody Awards, and the Cannes Grand Prix. He has also received an Academy Honorary Award, an Honorary BAFTA Award, an Honorary César, and the Dorothy and Lillian Gish Prize. Lee's films Do the Right Thing, Malcolm X, 4 Little Girls and She's Gotta Have It were each selected by the Library of Congress for preservation in the National Film Registry for being culturally, historically, or aesthetically significant.",
-                            "Birth" : "1957"
-                        },
-                        "_id" : "61542c5b76df2b4139653dc1",
-	                    "Title" : "Chi-Raq",
-	                    "Description" : "Chi-Raq (/ʃaɪˈræk/) is a 2015 American musical crime comedy drama film, directed and produced by Spike Lee and co-written by Lee and Kevin Willmott. Set in Chicago, the film focuses on the gang violence prevalent in neighborhoods on the city's south side, particularly the Englewood neighborhood.",
-	                    "ImagePath" : " https://upload.wikimedia.org/wikipedia/en/e/e7/ChiRaqMoviePoster.png",
-                        "Featured" : false
+                    <p style="text-indent: 20px">"Genre" : {</p>
+                            <p style="text-indent: 40px">"Name" : "Comedy Drama",</p>
+                            <p style="text-indent: 40px">"Description" : "This category consists of movies that contain elements of comedy films, in addition to being a drama. Comedy (from the Greek: κωμῳδία, kōmōdía) is a genre of fiction that consists of discourses or works intended to be humorous or amusing by inducing laughter, especially in theatre, film, stand-up comedy, television, radio, books, or any other entertainment medium. Drama is the specific mode of fiction represented in performance: a play, opera, mime, ballet, etc., performed in a theatre, or on radio or television.", </p>
+                            <p style="text-indent: 80px">},</p>
+                    <p style="text-indent: 20px">"Director" : {</p>
+                            <p style="text-indent: 40px">"Name" : "Spike Lee",</p>
+                            <p style="text-indent: 40px">"Bio" : "Spike Lee's work has continually explored race relations, colorism in the black community, the role of media in contemporary life, urban crime and poverty, and other political issues. He has won numerous accolades for his work, including an Academy Award for Best Adapted Screenplay, a Student Academy Award, a BAFTA Award for Best Adapted Screenplay, two Emmy Awards, two Peabody Awards, and the Cannes Grand Prix. He has also received an Academy Honorary Award, an Honorary BAFTA Award, an Honorary César, and the Dorothy and Lillian Gish Prize. Lee's films Do the Right Thing, Malcolm X, 4 Little Girls and She's Gotta Have It were each selected by the Library of Congress for preservation in the National Film Registry for being culturally, historically, or aesthetically significant.",</p>
+                            <p style="text-indent: 40px">"Birth" : "1957",</p>
+                            <p style="text-indent: 80px">},</p>
+                    <p style="text-indent: 20px">"_id" : "61542c5b76df2b4139653dc1",</p>
+                    <p style="text-indent: 20px">"Title" : "Chi-Raq",</p>
+                    <p style="text-indent: 20px">"Description" : "Chi-Raq (/ʃaɪˈræk/) is a 2015 American musical crime comedy drama film, directed and produced by Spike Lee and co-written by Lee and Kevin Willmott. Set in Chicago, the film focuses on the gang violence prevalent in neighborhoods on the city's south side, particularly the Englewood neighborhood.",</p>
+                    <p style="text-indent: 20px">"ImagePath" : " https://upload.wikimedia.org/wikipedia/en/e/e7/ChiRaqMoviePoster.png",</p>
+                    <p style="text-indent: 20px">"Featured" : false</p>
                     }
-
-                    
                 </td>
+                
             </tr>
             <tr>
                 <td>2. This endpoint returns data (description, genre, director, image URL, whether it’s featured or not) about a single movie by title to the user</td>
@@ -121,6 +121,24 @@
                 <td>GET</td>
                 <td>none</td>
                 <td>JSON object holding data about movie info</td>
+                <td style="line-height: 1em; font-size: smaller;">
+                    {
+                    <p style="text-indent: 20px">"Genre" : {</p>
+                            <p style="text-indent: 40px">"Name" : "Comedy Drama",</p>
+                            <p style="text-indent: 40px">"Description" : "This category consists of movies that contain elements of comedy films, in addition to being a drama. Comedy (from the Greek: κωμῳδία, kōmōdía) is a genre of fiction that consists of discourses or works intended to be humorous or amusing by inducing laughter, especially in theatre, film, stand-up comedy, television, radio, books, or any other entertainment medium. Drama is the specific mode of fiction represented in performance: a play, opera, mime, ballet, etc., performed in a theatre, or on radio or television.", </p>
+                            <p style="text-indent: 80px">},</p>
+                    <p style="text-indent: 20px">"Director" : {</p>
+                            <p style="text-indent: 40px">"Name" : "Spike Lee",</p>
+                            <p style="text-indent: 40px">"Bio" : "Spike Lee's work has continually explored race relations, colorism in the black community, the role of media in contemporary life, urban crime and poverty, and other political issues. He has won numerous accolades for his work, including an Academy Award for Best Adapted Screenplay, a Student Academy Award, a BAFTA Award for Best Adapted Screenplay, two Emmy Awards, two Peabody Awards, and the Cannes Grand Prix. He has also received an Academy Honorary Award, an Honorary BAFTA Award, an Honorary César, and the Dorothy and Lillian Gish Prize. Lee's films Do the Right Thing, Malcolm X, 4 Little Girls and She's Gotta Have It were each selected by the Library of Congress for preservation in the National Film Registry for being culturally, historically, or aesthetically significant.",</p>
+                            <p style="text-indent: 40px">"Birth" : "1957",</p>
+                            <p style="text-indent: 80px">},</p>
+                    <p style="text-indent: 20px">"_id" : "61542c5b76df2b4139653dc1",</p>
+                    <p style="text-indent: 20px">"Title" : "Chi-Raq",</p>
+                    <p style="text-indent: 20px">"Description" : "Chi-Raq (/ʃaɪˈræk/) is a 2015 American musical crime comedy drama film, directed and produced by Spike Lee and co-written by Lee and Kevin Willmott. Set in Chicago, the film focuses on the gang violence prevalent in neighborhoods on the city's south side, particularly the Englewood neighborhood.",</p>
+                    <p style="text-indent: 20px">"ImagePath" : " https://upload.wikimedia.org/wikipedia/en/e/e7/ChiRaqMoviePoster.png",</p>
+                    <p style="text-indent: 20px">"Featured" : false</p>
+                    }
+                </td>
             </tr>
             <tr>
                 <td>3. This endpoint returns data about a genre (description) by name/title (e.g., “Thriller”)</td>
@@ -128,6 +146,24 @@
                 <td>GET</td>
                 <td>none</td>
                 <td>JSON object holding data about a movie genre</td>
+                <td style="line-height: 1em; font-size: smaller;">
+                    {
+                    <p style="text-indent: 20px">"Genre" : {</p>
+                            <p style="text-indent: 40px">"Name" : "Comedy Drama",</p>
+                            <p style="text-indent: 40px">"Description" : "This category consists of movies that contain elements of comedy films, in addition to being a drama. Comedy (from the Greek: κωμῳδία, kōmōdía) is a genre of fiction that consists of discourses or works intended to be humorous or amusing by inducing laughter, especially in theatre, film, stand-up comedy, television, radio, books, or any other entertainment medium. Drama is the specific mode of fiction represented in performance: a play, opera, mime, ballet, etc., performed in a theatre, or on radio or television.", </p>
+                            <p style="text-indent: 80px">},</p>
+                    <p style="text-indent: 20px">"Director" : {</p>
+                            <p style="text-indent: 40px">"Name" : "Spike Lee",</p>
+                            <p style="text-indent: 40px">"Bio" : "Spike Lee's work has continually explored race relations, colorism in the black community, the role of media in contemporary life, urban crime and poverty, and other political issues. He has won numerous accolades for his work, including an Academy Award for Best Adapted Screenplay, a Student Academy Award, a BAFTA Award for Best Adapted Screenplay, two Emmy Awards, two Peabody Awards, and the Cannes Grand Prix. He has also received an Academy Honorary Award, an Honorary BAFTA Award, an Honorary César, and the Dorothy and Lillian Gish Prize. Lee's films Do the Right Thing, Malcolm X, 4 Little Girls and She's Gotta Have It were each selected by the Library of Congress for preservation in the National Film Registry for being culturally, historically, or aesthetically significant.",</p>
+                            <p style="text-indent: 40px">"Birth" : "1957",</p>
+                            <p style="text-indent: 80px">},</p>
+                    <p style="text-indent: 20px">"_id" : "61542c5b76df2b4139653dc1",</p>
+                    <p style="text-indent: 20px">"Title" : "Chi-Raq",</p>
+                    <p style="text-indent: 20px">"Description" : "Chi-Raq (/ʃaɪˈræk/) is a 2015 American musical crime comedy drama film, directed and produced by Spike Lee and co-written by Lee and Kevin Willmott. Set in Chicago, the film focuses on the gang violence prevalent in neighborhoods on the city's south side, particularly the Englewood neighborhood.",</p>
+                    <p style="text-indent: 20px">"ImagePath" : " https://upload.wikimedia.org/wikipedia/en/e/e7/ChiRaqMoviePoster.png",</p>
+                    <p style="text-indent: 20px">"Featured" : false</p>
+                    }
+                </td>
             </tr>
             <tr> 
                 <td>4. This endpoint returns data about a director (bio, birth year, death year) by name</td>
@@ -135,6 +171,24 @@
                 <td>GET</td>
                 <td>none</td>
                 <td>JSON object holding data about a movie director</td> 
+                <td style="line-height: 1em; font-size: smaller;">
+                    {
+                    <p style="text-indent: 20px">"Genre" : {</p>
+                            <p style="text-indent: 40px">"Name" : "Comedy Drama",</p>
+                            <p style="text-indent: 40px">"Description" : "This category consists of movies that contain elements of comedy films, in addition to being a drama. Comedy (from the Greek: κωμῳδία, kōmōdía) is a genre of fiction that consists of discourses or works intended to be humorous or amusing by inducing laughter, especially in theatre, film, stand-up comedy, television, radio, books, or any other entertainment medium. Drama is the specific mode of fiction represented in performance: a play, opera, mime, ballet, etc., performed in a theatre, or on radio or television.", </p>
+                            <p style="text-indent: 80px">},</p>
+                    <p style="text-indent: 20px">"Director" : {</p>
+                            <p style="text-indent: 40px">"Name" : "Spike Lee",</p>
+                            <p style="text-indent: 40px">"Bio" : "Spike Lee's work has continually explored race relations, colorism in the black community, the role of media in contemporary life, urban crime and poverty, and other political issues. He has won numerous accolades for his work, including an Academy Award for Best Adapted Screenplay, a Student Academy Award, a BAFTA Award for Best Adapted Screenplay, two Emmy Awards, two Peabody Awards, and the Cannes Grand Prix. He has also received an Academy Honorary Award, an Honorary BAFTA Award, an Honorary César, and the Dorothy and Lillian Gish Prize. Lee's films Do the Right Thing, Malcolm X, 4 Little Girls and She's Gotta Have It were each selected by the Library of Congress for preservation in the National Film Registry for being culturally, historically, or aesthetically significant.",</p>
+                            <p style="text-indent: 40px">"Birth" : "1957",</p>
+                            <p style="text-indent: 80px">},</p>
+                    <p style="text-indent: 20px">"_id" : "61542c5b76df2b4139653dc1",</p>
+                    <p style="text-indent: 20px">"Title" : "Chi-Raq",</p>
+                    <p style="text-indent: 20px">"Description" : "Chi-Raq (/ʃaɪˈræk/) is a 2015 American musical crime comedy drama film, directed and produced by Spike Lee and co-written by Lee and Kevin Willmott. Set in Chicago, the film focuses on the gang violence prevalent in neighborhoods on the city's south side, particularly the Englewood neighborhood.",</p>
+                    <p style="text-indent: 20px">"ImagePath" : " https://upload.wikimedia.org/wikipedia/en/e/e7/ChiRaqMoviePoster.png",</p>
+                    <p style="text-indent: 20px">"Featured" : false</p>
+                    }
+                </td>
             </tr>              
             <tr>
                 <td>5. This endpoint allows new users to register</td>
@@ -142,6 +196,24 @@
                 <td>POST</td>
                 <td>JSON object holding data about the user to add</td>
                 <td>JSON object holding data about the user that was added, including an ID</td>
+                <td style="line-height: 1em; font-size: smaller;">
+                    {
+                    <p style="text-indent: 20px">"Genre" : {</p>
+                            <p style="text-indent: 40px">"Name" : "Comedy Drama",</p>
+                            <p style="text-indent: 40px">"Description" : "This category consists of movies that contain elements of comedy films, in addition to being a drama. Comedy (from the Greek: κωμῳδία, kōmōdía) is a genre of fiction that consists of discourses or works intended to be humorous or amusing by inducing laughter, especially in theatre, film, stand-up comedy, television, radio, books, or any other entertainment medium. Drama is the specific mode of fiction represented in performance: a play, opera, mime, ballet, etc., performed in a theatre, or on radio or television.", </p>
+                            <p style="text-indent: 80px">},</p>
+                    <p style="text-indent: 20px">"Director" : {</p>
+                            <p style="text-indent: 40px">"Name" : "Spike Lee",</p>
+                            <p style="text-indent: 40px">"Bio" : "Spike Lee's work has continually explored race relations, colorism in the black community, the role of media in contemporary life, urban crime and poverty, and other political issues. He has won numerous accolades for his work, including an Academy Award for Best Adapted Screenplay, a Student Academy Award, a BAFTA Award for Best Adapted Screenplay, two Emmy Awards, two Peabody Awards, and the Cannes Grand Prix. He has also received an Academy Honorary Award, an Honorary BAFTA Award, an Honorary César, and the Dorothy and Lillian Gish Prize. Lee's films Do the Right Thing, Malcolm X, 4 Little Girls and She's Gotta Have It were each selected by the Library of Congress for preservation in the National Film Registry for being culturally, historically, or aesthetically significant.",</p>
+                            <p style="text-indent: 40px">"Birth" : "1957",</p>
+                            <p style="text-indent: 80px">},</p>
+                    <p style="text-indent: 20px">"_id" : "61542c5b76df2b4139653dc1",</p>
+                    <p style="text-indent: 20px">"Title" : "Chi-Raq",</p>
+                    <p style="text-indent: 20px">"Description" : "Chi-Raq (/ʃaɪˈræk/) is a 2015 American musical crime comedy drama film, directed and produced by Spike Lee and co-written by Lee and Kevin Willmott. Set in Chicago, the film focuses on the gang violence prevalent in neighborhoods on the city's south side, particularly the Englewood neighborhood.",</p>
+                    <p style="text-indent: 20px">"ImagePath" : " https://upload.wikimedia.org/wikipedia/en/e/e7/ChiRaqMoviePoster.png",</p>
+                    <p style="text-indent: 20px">"Featured" : false</p>
+                    }
+                </td>
             </tr> 
             <tr>
                 <td>6. This endpoint allows users to update their user info (username)</td>
@@ -149,6 +221,24 @@
                 <td>PUT</td>
                 <td>none</td>
                 <td>A text message showing that the username has been updated</td>
+                <td style="line-height: 1em; font-size: smaller;">
+                    {
+                    <p style="text-indent: 20px">"Genre" : {</p>
+                            <p style="text-indent: 40px">"Name" : "Comedy Drama",</p>
+                            <p style="text-indent: 40px">"Description" : "This category consists of movies that contain elements of comedy films, in addition to being a drama. Comedy (from the Greek: κωμῳδία, kōmōdía) is a genre of fiction that consists of discourses or works intended to be humorous or amusing by inducing laughter, especially in theatre, film, stand-up comedy, television, radio, books, or any other entertainment medium. Drama is the specific mode of fiction represented in performance: a play, opera, mime, ballet, etc., performed in a theatre, or on radio or television.", </p>
+                            <p style="text-indent: 80px">},</p>
+                    <p style="text-indent: 20px">"Director" : {</p>
+                            <p style="text-indent: 40px">"Name" : "Spike Lee",</p>
+                            <p style="text-indent: 40px">"Bio" : "Spike Lee's work has continually explored race relations, colorism in the black community, the role of media in contemporary life, urban crime and poverty, and other political issues. He has won numerous accolades for his work, including an Academy Award for Best Adapted Screenplay, a Student Academy Award, a BAFTA Award for Best Adapted Screenplay, two Emmy Awards, two Peabody Awards, and the Cannes Grand Prix. He has also received an Academy Honorary Award, an Honorary BAFTA Award, an Honorary César, and the Dorothy and Lillian Gish Prize. Lee's films Do the Right Thing, Malcolm X, 4 Little Girls and She's Gotta Have It were each selected by the Library of Congress for preservation in the National Film Registry for being culturally, historically, or aesthetically significant.",</p>
+                            <p style="text-indent: 40px">"Birth" : "1957",</p>
+                            <p style="text-indent: 80px">},</p>
+                    <p style="text-indent: 20px">"_id" : "61542c5b76df2b4139653dc1",</p>
+                    <p style="text-indent: 20px">"Title" : "Chi-Raq",</p>
+                    <p style="text-indent: 20px">"Description" : "Chi-Raq (/ʃaɪˈræk/) is a 2015 American musical crime comedy drama film, directed and produced by Spike Lee and co-written by Lee and Kevin Willmott. Set in Chicago, the film focuses on the gang violence prevalent in neighborhoods on the city's south side, particularly the Englewood neighborhood.",</p>
+                    <p style="text-indent: 20px">"ImagePath" : " https://upload.wikimedia.org/wikipedia/en/e/e7/ChiRaqMoviePoster.png",</p>
+                    <p style="text-indent: 20px">"Featured" : false</p>
+                    }
+                </td>
             </tr> 
             <tr>
                 <td>7. This endpoint allows users to add a movie to their list of favorites (showing only a text that a movie has been added—more on this later)</td>
@@ -156,6 +246,24 @@
                 <td>PUT</td>
                 <td>none</td>
                 <td>A text message showing that a movie has been added to list of favorites</td>
+                <td style="line-height: 1em; font-size: smaller;">
+                    {
+                    <p style="text-indent: 20px">"Genre" : {</p>
+                            <p style="text-indent: 40px">"Name" : "Comedy Drama",</p>
+                            <p style="text-indent: 40px">"Description" : "This category consists of movies that contain elements of comedy films, in addition to being a drama. Comedy (from the Greek: κωμῳδία, kōmōdía) is a genre of fiction that consists of discourses or works intended to be humorous or amusing by inducing laughter, especially in theatre, film, stand-up comedy, television, radio, books, or any other entertainment medium. Drama is the specific mode of fiction represented in performance: a play, opera, mime, ballet, etc., performed in a theatre, or on radio or television.", </p>
+                            <p style="text-indent: 80px">},</p>
+                    <p style="text-indent: 20px">"Director" : {</p>
+                            <p style="text-indent: 40px">"Name" : "Spike Lee",</p>
+                            <p style="text-indent: 40px">"Bio" : "Spike Lee's work has continually explored race relations, colorism in the black community, the role of media in contemporary life, urban crime and poverty, and other political issues. He has won numerous accolades for his work, including an Academy Award for Best Adapted Screenplay, a Student Academy Award, a BAFTA Award for Best Adapted Screenplay, two Emmy Awards, two Peabody Awards, and the Cannes Grand Prix. He has also received an Academy Honorary Award, an Honorary BAFTA Award, an Honorary César, and the Dorothy and Lillian Gish Prize. Lee's films Do the Right Thing, Malcolm X, 4 Little Girls and She's Gotta Have It were each selected by the Library of Congress for preservation in the National Film Registry for being culturally, historically, or aesthetically significant.",</p>
+                            <p style="text-indent: 40px">"Birth" : "1957",</p>
+                            <p style="text-indent: 80px">},</p>
+                    <p style="text-indent: 20px">"_id" : "61542c5b76df2b4139653dc1",</p>
+                    <p style="text-indent: 20px">"Title" : "Chi-Raq",</p>
+                    <p style="text-indent: 20px">"Description" : "Chi-Raq (/ʃaɪˈræk/) is a 2015 American musical crime comedy drama film, directed and produced by Spike Lee and co-written by Lee and Kevin Willmott. Set in Chicago, the film focuses on the gang violence prevalent in neighborhoods on the city's south side, particularly the Englewood neighborhood.",</p>
+                    <p style="text-indent: 20px">"ImagePath" : " https://upload.wikimedia.org/wikipedia/en/e/e7/ChiRaqMoviePoster.png",</p>
+                    <p style="text-indent: 20px">"Featured" : false</p>
+                    }
+                </td>
             </tr> 
             <tr>
                 <td>8. This endpoint allows users to remove a movie from their list of favorites (showing only a text that a movie has been removed—more on this later)</td>
@@ -163,6 +271,24 @@
                 <td>DELETE</td>
                 <td>none</td>
                 <td>A text message showing that a movie has been removed from list of favorites</td>
+                <td style="line-height: 1em; font-size: smaller;">
+                    {
+                    <p style="text-indent: 20px">"Genre" : {</p>
+                            <p style="text-indent: 40px">"Name" : "Comedy Drama",</p>
+                            <p style="text-indent: 40px">"Description" : "This category consists of movies that contain elements of comedy films, in addition to being a drama. Comedy (from the Greek: κωμῳδία, kōmōdía) is a genre of fiction that consists of discourses or works intended to be humorous or amusing by inducing laughter, especially in theatre, film, stand-up comedy, television, radio, books, or any other entertainment medium. Drama is the specific mode of fiction represented in performance: a play, opera, mime, ballet, etc., performed in a theatre, or on radio or television.", </p>
+                            <p style="text-indent: 80px">},</p>
+                    <p style="text-indent: 20px">"Director" : {</p>
+                            <p style="text-indent: 40px">"Name" : "Spike Lee",</p>
+                            <p style="text-indent: 40px">"Bio" : "Spike Lee's work has continually explored race relations, colorism in the black community, the role of media in contemporary life, urban crime and poverty, and other political issues. He has won numerous accolades for his work, including an Academy Award for Best Adapted Screenplay, a Student Academy Award, a BAFTA Award for Best Adapted Screenplay, two Emmy Awards, two Peabody Awards, and the Cannes Grand Prix. He has also received an Academy Honorary Award, an Honorary BAFTA Award, an Honorary César, and the Dorothy and Lillian Gish Prize. Lee's films Do the Right Thing, Malcolm X, 4 Little Girls and She's Gotta Have It were each selected by the Library of Congress for preservation in the National Film Registry for being culturally, historically, or aesthetically significant.",</p>
+                            <p style="text-indent: 40px">"Birth" : "1957",</p>
+                            <p style="text-indent: 80px">},</p>
+                    <p style="text-indent: 20px">"_id" : "61542c5b76df2b4139653dc1",</p>
+                    <p style="text-indent: 20px">"Title" : "Chi-Raq",</p>
+                    <p style="text-indent: 20px">"Description" : "Chi-Raq (/ʃaɪˈræk/) is a 2015 American musical crime comedy drama film, directed and produced by Spike Lee and co-written by Lee and Kevin Willmott. Set in Chicago, the film focuses on the gang violence prevalent in neighborhoods on the city's south side, particularly the Englewood neighborhood.",</p>
+                    <p style="text-indent: 20px">"ImagePath" : " https://upload.wikimedia.org/wikipedia/en/e/e7/ChiRaqMoviePoster.png",</p>
+                    <p style="text-indent: 20px">"Featured" : false</p>
+                    }
+                </td>
             </tr> 
             <tr>
                 <td>9. This endpoint allows existing users to deregister (showing only a text that a user email has been removed—more on this later)</td>
@@ -170,6 +296,24 @@
                 <td>DELETE</td>
                 <td>none</td>
                 <td>A text message showing that a user email has been removed</td>
+                <td style="line-height: 1em; font-size: smaller;">
+                    {
+                    <p style="text-indent: 20px">"Genre" : {</p>
+                            <p style="text-indent: 40px">"Name" : "Comedy Drama",</p>
+                            <p style="text-indent: 40px">"Description" : "This category consists of movies that contain elements of comedy films, in addition to being a drama. Comedy (from the Greek: κωμῳδία, kōmōdía) is a genre of fiction that consists of discourses or works intended to be humorous or amusing by inducing laughter, especially in theatre, film, stand-up comedy, television, radio, books, or any other entertainment medium. Drama is the specific mode of fiction represented in performance: a play, opera, mime, ballet, etc., performed in a theatre, or on radio or television.", </p>
+                            <p style="text-indent: 80px">},</p>
+                    <p style="text-indent: 20px">"Director" : {</p>
+                            <p style="text-indent: 40px">"Name" : "Spike Lee",</p>
+                            <p style="text-indent: 40px">"Bio" : "Spike Lee's work has continually explored race relations, colorism in the black community, the role of media in contemporary life, urban crime and poverty, and other political issues. He has won numerous accolades for his work, including an Academy Award for Best Adapted Screenplay, a Student Academy Award, a BAFTA Award for Best Adapted Screenplay, two Emmy Awards, two Peabody Awards, and the Cannes Grand Prix. He has also received an Academy Honorary Award, an Honorary BAFTA Award, an Honorary César, and the Dorothy and Lillian Gish Prize. Lee's films Do the Right Thing, Malcolm X, 4 Little Girls and She's Gotta Have It were each selected by the Library of Congress for preservation in the National Film Registry for being culturally, historically, or aesthetically significant.",</p>
+                            <p style="text-indent: 40px">"Birth" : "1957",</p>
+                            <p style="text-indent: 80px">},</p>
+                    <p style="text-indent: 20px">"_id" : "61542c5b76df2b4139653dc1",</p>
+                    <p style="text-indent: 20px">"Title" : "Chi-Raq",</p>
+                    <p style="text-indent: 20px">"Description" : "Chi-Raq (/ʃaɪˈræk/) is a 2015 American musical crime comedy drama film, directed and produced by Spike Lee and co-written by Lee and Kevin Willmott. Set in Chicago, the film focuses on the gang violence prevalent in neighborhoods on the city's south side, particularly the Englewood neighborhood.",</p>
+                    <p style="text-indent: 20px">"ImagePath" : " https://upload.wikimedia.org/wikipedia/en/e/e7/ChiRaqMoviePoster.png",</p>
+                    <p style="text-indent: 20px">"Featured" : false</p>
+                    }
+                </td>
             </tr> 
             
             </tbody>
