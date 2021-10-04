@@ -17,15 +17,14 @@ let auth = require('./auth')(app);
 mongoose.connect('mongodb://localhost:27017/myFlixMovieDB', 
 {useNewUrlParser: true, useUnifiedTopology: true});
   
+
      
 const app = express();
 
-
-  //middleware
   app.use(morgan('common'));
-  app.use(express.static('public'));
+  app.use(express.urlencoded({ extended: true }));
   app.use(bodyParser.json());
-  //middleware importing auth.js
+  
   
 
 //1. Returns a list of all movies  
