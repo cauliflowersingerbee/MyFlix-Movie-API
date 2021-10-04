@@ -3,15 +3,18 @@ const express = require('express');
       morgan = require('morgan');
       uuid = require('uuid');
       bodyParser = require('body-parser');
+      lodash = require('lodash');
+
+const router = express.Router();
+
+
+
 
 const mongoose = require('mongoose');
-const Models = require('./models.js');
+const Models = require('./models');
       
 const Movies = Models.Movie;
 const Users = Models.User;
-
-const passport = require('passport');
-  require('./passport');
 
 mongoose.connect('mongodb://localhost:27017/myFlixMovieDB', 
 {useNewUrlParser: true, useUnifiedTopology: true});
@@ -23,8 +26,13 @@ const app = express();
   app.use(morgan('common'));
   app.use(express.urlencoded({ extended: true }));
   app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({ extended: true }));
+  app.use(router);
+
 
   let auth = require('./auth')(app);
+  const passport = require('passport');
+  require('./passport');
   
   
   app.use(express.json());
