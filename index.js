@@ -20,7 +20,8 @@ const app = express();
   app.use(morgan('common'));
   app.use(express.static('public'));
   app.use(bodyParser.json());
-
+  //middleware importing auth.js
+  let auth = require('./auth')(app);
 
 //1. Returns a list of all movies  
 
