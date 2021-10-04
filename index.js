@@ -22,6 +22,8 @@ const app = express();
   app.use(bodyParser.json());
   //middleware importing auth.js
   let auth = require('./auth')(app);
+  const passport = require('passport');
+  require('./passport');
 
 //1. Returns a list of all movies  
 
