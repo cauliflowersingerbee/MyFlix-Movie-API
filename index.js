@@ -26,6 +26,7 @@ const app = express();
 
   let auth = require('./auth')(app);
   
+  
   app.use(express.json());
   app.use(express.static("public"));
 
