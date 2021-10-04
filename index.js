@@ -10,10 +10,6 @@ const Models = require('./models.js');
 const Movies = Models.Movie;
 const Users = Models.User;
 
-let auth = require('./auth')(app);
-  const passport = require('passport');
-  require('./passport');
-
 mongoose.connect('mongodb://localhost:27017/myFlixMovieDB', 
 {useNewUrlParser: true, useUnifiedTopology: true});
   
@@ -24,7 +20,19 @@ const app = express();
   app.use(morgan('common'));
   app.use(express.urlencoded({ extended: true }));
   app.use(bodyParser.json());
+
+  let auth = require('./auth')(app);
+  const passport = require('passport');
+  require('./passport');
   
+  app.use(express.json());
+  app.use(express.static("public"));
+
+
+  app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send(err);
+});
   
 
 //1. Returns a list of all movies  
@@ -191,12 +199,7 @@ app.delete('/users/:Username', passport.authenticate('jwt', { session: false }),
     });
 });
 
- //error-handling middleware
 
- app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send('Yikes, something isn\'t quite right here!');
-});
 
 
 //server/requests listener
