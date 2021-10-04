@@ -19,7 +19,7 @@ const app = express();
   //middleware
   app.use(morgan('common'));
   app.use(express.static('public'));
-  app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({ extended: true }));
   //middleware importing auth.js
   let auth = require('./auth')(app);
   const passport = require('passport');
