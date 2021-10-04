@@ -10,7 +10,12 @@ const Models = require('./models.js');
 const Movies = Models.Movie;
 const Users = Models.User;
 
-mongoose.connect('mongodb://localhost:27017/myFlixMovieDB', {useNewUrlParser: true, useUnifiedTopology: true});
+let auth = require('./auth')(app);
+  const passport = require('passport');
+  require('./passport');
+
+mongoose.connect('mongodb://localhost:27017/myFlixMovieDB', 
+{useNewUrlParser: true, useUnifiedTopology: true});
   
      
 const app = express();
@@ -19,11 +24,9 @@ const app = express();
   //middleware
   app.use(morgan('common'));
   app.use(express.static('public'));
-  app.use(bodyParser.urlencoded({ extended: true }));
+  app.use(bodyParser.json());
   //middleware importing auth.js
-  let auth = require('./auth')(app);
-  const passport = require('passport');
-  require('./passport');
+  
 
 //1. Returns a list of all movies  
 
