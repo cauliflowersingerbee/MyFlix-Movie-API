@@ -27,7 +27,7 @@ const app = express();
 
 //1. Returns a list of all movies  
 
-app.get('/movies', (req, res) => {
+app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.find()
   .then((movies) => {
     res.status(201).json(movies);
@@ -39,7 +39,7 @@ app.get('/movies', (req, res) => {
 });
 
 //2. Returns data about a single movie 
-app.get('/movies/:Title', (req, res) => {
+app.get('/movies/:Title', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.findOne({ Title: req.params.Title })
     .then ((movie) => {
       res.json(movie);
@@ -51,7 +51,7 @@ app.get('/movies/:Title', (req, res) => {
 });
 
 //3. Returns data about genre
-app.get('/movies/genres/:Genre', (req, res) => {
+app.get('/movies/genres/:Genre', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.find({ 'Genre.Name': req.params.Genre })
     .then ((movie) => {
       res.json(movie);
@@ -65,7 +65,7 @@ app.get('/movies/genres/:Genre', (req, res) => {
 
 
 //4. Returns data about director
-app.get('/movies/directors/:Director', (req, res) => {
+app.get('/movies/directors/:Director', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.find({ 'Director.Name': req.params.Director })
     .then ((movie) => {
       res.json(movie);
@@ -78,7 +78,7 @@ app.get('/movies/directors/:Director', (req, res) => {
 
 
 //5. Allows new users to register
-app.post('/users', (req, res) => {
+app.post('/users', passport.authenticate('jwt', { session: false }), (req, res) => {
   Users.findOne({ Username: req.body.Username })
     .then((user) => {
       if (user) {
@@ -107,7 +107,7 @@ app.post('/users', (req, res) => {
 
 
 //6. Updates user info (username)
-app.put('/users/:Username', (req, res) => {
+app.put('/users/:Username', passport.authenticate('jwt', { session: false }), (req, res) => {
   Users.findOneAndUpdate({ Username: req.params.Username }, { $set:
     {
       Username: req.body.Username,
@@ -134,7 +134,7 @@ app.put('/users/:Username', (req, res) => {
 
 //7. Allows users to add movie to favorites
 
-app.post('/users/:Username/movies/:MovieID', (req, res) => {
+app.post('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { session: false }), (req, res) => {
   Users.findOneAndUpdate({ Username: req.params.Username }, {
      $push: { FavoriteMovie: req.params.MovieID }
    },
@@ -154,7 +154,7 @@ app.post('/users/:Username/movies/:MovieID', (req, res) => {
 //8. Allows users to remove movie from favorites
 
   
-app.delete('/users/:Username/movies/:MovieID', (req, res) => {
+app.delete('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { session: false }), (req, res) => {
     Users.findOneAndUpdate({ Username: req.params.Username }, {
        $pull: { FavoriteMovie: req.params.MovieID }
      },
@@ -174,7 +174,7 @@ app.delete('/users/:Username/movies/:MovieID', (req, res) => {
 
 //9. Allows users to deregister from Kino Noir
 
-app.delete('/users/:Username', (req, res) => {
+app.delete('/users/:Username', passport.authenticate('jwt', { session: false }), (req, res) => {
   Users.findOneAndRemove({ Username: req.params.Username })
     .then((user) => {
       if (!user) {
