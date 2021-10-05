@@ -18,7 +18,8 @@ const Users = Models.User;
 
 mongoose.connect('mongodb://localhost:27017/myFlixMovieDB', 
 {useNewUrlParser: true, useUnifiedTopology: true});
-  
+
+const { check, validationResult } = require('express-validator');
 
      
 const app = express();
@@ -115,7 +116,12 @@ app.get('/movies/directors/:Director', passport.authenticate('jwt', { session: f
 
 
 //5. Allows new users to register
-app.post('/users', (req, res) => {
+app.post('/users', [
+  check('Username', 'Username is required').isLength({min: 5}),
+  check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
+  check('Password', 'Password is required').not().isEmpty(),
+  check('Email', 'Email does not appear to be valid').isEmail()
+], (req, res) => {
   let hashedPassword = Users.hashPassword(req.body.Password);
   Users.findOne({ Username: req.body.Username })
     .then((user) => {
