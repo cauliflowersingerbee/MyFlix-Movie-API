@@ -116,6 +116,7 @@ app.get('/movies/directors/:Director', passport.authenticate('jwt', { session: f
 
 //5. Allows new users to register
 app.post('/users', (req, res) => {
+  let hashedPassword = Users.hashPassword(req.body.Password);
   Users.findOne({ Username: req.body.Username })
     .then((user) => {
       if (user) {
@@ -125,7 +126,7 @@ app.post('/users', (req, res) => {
           .create({
             Username: req.body.Username,
             Birthday: req.body.Birthday,
-            Password: req.body.Password,
+            Password: hashedPassword,
             Email: req.body.Email
           })
           .then((user) =>{res.status(201).json(user) })
