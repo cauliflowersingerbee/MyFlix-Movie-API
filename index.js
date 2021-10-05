@@ -256,6 +256,7 @@ app.delete('/users/:Username', passport.authenticate('jwt', { session: false }),
 
 
 //server/requests listener
-app.listen(8080, () => {
-console.log('Kino Noir is listening on port 8080.');
+const port = process.env.PORT || 8080;
+app.listen(port, '0.0.0.0',() => {
+ console.log('Listening on Port ' + port);
 });
