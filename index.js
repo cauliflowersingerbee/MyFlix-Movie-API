@@ -16,8 +16,11 @@ const Models = require('./models');
 const Movies = Models.Movie;
 const Users = Models.User;
 
-mongoose.connect('mongodb://localhost:27017/myFlixMovieDB', 
-{useNewUrlParser: true, useUnifiedTopology: true});
+/*mongoose.connect('mongodb://localhost:27017/myFlixMovieDB', 
+{useNewUrlParser: true, useUnifiedTopology: true}); */
+
+mongoose.connect('mongodb+srv://new-user8976:95B9wmd5GsgqziJw@cluster0.01o86.mongodb.net/myFlixMovieDB?retryWrites=true&w=majority', 
+{ useNewUrlParser: true, useUnifiedTopology: true });
 
 const { check, validationResult } = require('express-validator');
 
