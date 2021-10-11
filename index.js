@@ -67,7 +67,7 @@ app.use(cors({
 
 //1. Returns a list of all movies  
 
-app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/movies', (req, res) => {
   Movies.find()
   .then((movies) => {
     res.status(201).json(movies);
@@ -77,6 +77,10 @@ app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) 
     res.status(500).send('Error: ' + err);
   });
 });
+
+/*temporarily removed this: 
+passport.authenticate('jwt', { session: false }),
+in order to give heroku access*/
 
 //2. Returns data about a single movie 
 app.get('/movies/:Title', passport.authenticate('jwt', { session: false }), (req, res) => {
