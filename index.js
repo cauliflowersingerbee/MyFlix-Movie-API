@@ -4,6 +4,7 @@ const express = require('express');
       uuid = require('uuid');
       bodyParser = require('body-parser');
       lodash = require('lodash');
+      const cors = require('cors');
 
 const router = express.Router();
 
@@ -32,7 +33,7 @@ const app = express();
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(router);
 
-  const cors = require('cors');
+  
   //for all origins:
   app.use(cors());
   /*For specific origins:
