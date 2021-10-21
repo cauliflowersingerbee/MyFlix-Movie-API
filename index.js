@@ -1,4 +1,3 @@
-//requirements and imports
 const express = require('express');
       morgan = require('morgan');
       uuid = require('uuid');
@@ -16,9 +15,10 @@ const Models = require('./models.js');
       
 const Movies = Models.Movie;
 const Users = Models.User;
+const uri = process.env.CONNECTION_URI;
 
 
-mongoose.connect( process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect( uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const { check, validationResult } = require('express-validator');
 
