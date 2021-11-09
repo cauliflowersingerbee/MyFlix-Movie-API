@@ -108,8 +108,8 @@ app.post('/users', [
    if (!errors.isEmpty()) {
      return res.status(422).json({ errors: errors.array() });
    }
-  let hashedPassword = Users.hashPassword(req.body.password);
-  Users.findOne({ username: req.body.username })
+  let hashedPassword = Users.hashPassword(req.body.Password);
+  Users.findOne({ username: req.body.Username })
     .then((user) => {
       if (user) {
         return res.status(400).send(req.body.Username + 'already exists');
