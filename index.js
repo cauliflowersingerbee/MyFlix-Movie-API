@@ -138,10 +138,10 @@ app.post('/users', [
 
 
 app.put('/users/:Username', passport.authenticate('jwt', { session: false }), [
-  check('Username', 'Username is required').isLength({min: 5}),
-  check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
-  check('Password', 'Password is required').not().isEmpty(),
-  check('Email', 'Email does not appear to be valid').isEmail()
+  check('username', 'Username is required').isLength({min: 5}).isAlphanumeric(),
+  check('birthday', 'Birthday is required').isNumeric(),
+  check('password', 'Password is required').not().isEmpty(),
+  check('email', 'Email does not appear to be valid').isEmail()
 ], (req, res) => {
   
   
