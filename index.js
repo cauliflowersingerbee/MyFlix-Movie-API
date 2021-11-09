@@ -108,18 +108,18 @@ app.post('/users', [
    if (!errors.isEmpty()) {
      return res.status(422).json({ errors: errors.array() });
    }
-  let hashedPassword = users.hashPassword(req.body.password);
-  users.findOne({ username: req.body.username })
+  let hashedPassword = Users.hashPassword(req.body.password);
+  Users.findOne({ username: req.body.username })
     .then((user) => {
       if (user) {
-        return res.status(400).send(req.body.username + 'already exists');
+        return res.status(400).send(req.body.Username + 'already exists');
       } else {
         Users
           .create({
-            username: req.body.username,
-            birthday: req.body.birthday,
+            username: req.body.Username,
+            birthday: req.body.Birthday,
             password: hashedPassword,
-            email: req.body.email
+            email: req.body.Email
           })
           .then((user) =>{res.status(201).json(user) })
         .catch((error) => {
@@ -150,12 +150,12 @@ app.put('/users/:username', passport.authenticate('jwt', { session: false }), [
     return res.status(422).json({ errors: errors.array() });
   }
 
-  Users.findOneAndUpdate({ username: req.params.username }, { $set:
+  Users.findOneAndUpdate({ username: req.params.Username }, { $set:
     {
-      username: req.body.username,
-      password: req.body.password,
-      email: req.body.email,
-      birthday: req.body.birthday
+      username: req.body.Username,
+      password: req.body.Password,
+      email: req.body.Email,
+      birthday: req.body.Birthday
     }
   },
   { new: true }, 
@@ -164,7 +164,7 @@ app.put('/users/:username', passport.authenticate('jwt', { session: false }), [
       console.error(err);
       res.status(500).send('Error: ' + err);
     } else {
-      const message = req.params.username + ' successfully updated!'
+      const message = req.params.Username + ' successfully updated!'
       res.status(201).send(message);
     }
   });
@@ -172,7 +172,7 @@ app.put('/users/:username', passport.authenticate('jwt', { session: false }), [
 
 
 app.post('/users/:username/movies/:MovieID', passport.authenticate('jwt', { session: false }), (req, res) => {
-  Users.findOneAndUpdate({ username: req.params.username }, {
+  Users.findOneAndUpdate({ username: req.params.Username }, {
      $push: { FavoriteMovie: req.params.MovieID }
    },
    { new: true }, // This line makes sure that the updated document is returned
