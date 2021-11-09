@@ -97,10 +97,10 @@ app.get('/movies/directors/:Director', passport.authenticate('jwt', { session: f
 
 
 app.post('/users', [
-  check('Username', 'Username is required').isLength({min: 5}),
-  check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
-  check('Password', 'Password is required').not().isEmpty(),
-  check('Email', 'Email does not appear to be valid').isEmail()
+  check('username', 'Username is required').isLength({min: 5}),
+  check('username', 'Username contains non-alphanumeric characters - not allowed.').isAlphanumeric(),
+  check('password', 'Password is required').not().isEmpty(),
+  check('email', 'Email does not appear to be valid').isEmail()
 ], (req, res) => {
   
   
@@ -109,18 +109,18 @@ app.post('/users', [
    if (!errors.isEmpty()) {
      return res.status(422).json({ errors: errors.array() });
    }
-  let hashedPassword = Users.hashPassword(req.body.Password);
-  Users.findOne({ Username: req.body.Username })
+  let hashedPassword = users.hashPassword(req.body.password);
+  users.findOne({ username: req.body.username })
     .then((user) => {
       if (user) {
-        return res.status(400).send(req.body.Username + 'already exists');
+        return res.status(400).send(req.body.username + 'already exists');
       } else {
         Users
           .create({
-            Username: req.body.Username,
-            Birthday: req.body.Birthday,
-            Password: hashedPassword,
-            Email: req.body.Email
+            username: req.body.username,
+            birthday: req.body.birthday,
+            password: hashedPassword,
+            email: req.body.email
           })
           .then((user) =>{res.status(201).json(user) })
         .catch((error) => {
@@ -137,11 +137,11 @@ app.post('/users', [
 
 
 
-app.put('/users/:Username', passport.authenticate('jwt', { session: false }), [
-  check('username').isLength({min: 5}).isAlphanumeric(),
-  check('birthday'),
-  check('password').not().isEmpty(),
-  check('email').isEmail()
+app.put('/users/:username', passport.authenticate('jwt', { session: false }), [
+  check('username', 'Username is required').isLength({min: 5}),
+  check('username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
+  check('password', 'Password is required').not().isEmpty(),
+  check('email', 'Email does not appear to be valid').isEmail()
 ], (req, res) => {
   
   
@@ -151,12 +151,12 @@ app.put('/users/:Username', passport.authenticate('jwt', { session: false }), [
     return res.status(422).json({ errors: errors.array() });
   }
 
-  Users.findOneAndUpdate({ Username: req.params.Username }, { $set:
+  Users.findOneAndUpdate({ username: req.params.username }, { $set:
     {
-      Username: req.body.Username,
-      Password: req.body.Password,
-      Email: req.body.Email,
-      Birthday: req.body.Birthday
+      username: req.body.username,
+      password: req.body.password,
+      email: req.body.email,
+      birthday: req.body.birthday
     }
   },
   { new: true }, 
@@ -165,15 +165,15 @@ app.put('/users/:Username', passport.authenticate('jwt', { session: false }), [
       console.error(err);
       res.status(500).send('Error: ' + err);
     } else {
-      const message = req.params.Username + ' successfully updated!'
+      const message = req.params.username + ' successfully updated!'
       res.status(201).send(message);
     }
   });
 });
 
 
-app.post('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { session: false }), (req, res) => {
-  Users.findOneAndUpdate({ Username: req.params.Username }, {
+app.post('/users/:username/movies/:MovieID', passport.authenticate('jwt', { session: false }), (req, res) => {
+  Users.findOneAndUpdate({ username: req.params.username }, {
      $push: { FavoriteMovie: req.params.MovieID }
    },
    { new: true }, // This line makes sure that the updated document is returned
