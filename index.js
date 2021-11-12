@@ -72,7 +72,7 @@ app.get('/users/:Username/movies/:FavoriteMovies', passport.authenticate('jwt', 
 });
 
 app.get('/users/:Username', (req, res) => {
-  User.findOne({Username: req.params.Username})
+  Users.findOne({Username: req.params.Username})
     .then((user) => {
       res.status(201).json(user);
     })
