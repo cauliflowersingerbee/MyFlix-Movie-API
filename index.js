@@ -60,15 +60,26 @@ app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) 
 });
 
 
-app.get('/users/:Username', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/users/:Username/movies/:FavoriteMovies', passport.authenticate('jwt', { session: false }), (req, res) => {
   Users.findOne({ Username: req.params.Username, Password: req.params.Password })
-  .then((users) => {
-    res.status(201).json(users);
+  .then((user) => {
+    res.status(201).json(user);
   })
   .catch((err) => {
     console.error(err);
     res.status(500).send('Error: ' + err);
   });
+});
+
+app.get('/users/:Username', passport.authenticate('jwt', { session: false }),(req, res) => {
+  User.findOne({Username: req.params.Username})
+    .then((user) => {
+      res.status(201).json(user);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send('Error: ' + err);
+    });
 });
 
 
