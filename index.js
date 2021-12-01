@@ -148,11 +148,11 @@ app.post('/users', [
 
 
 
-app.put('/users/:Username', passport.authenticate('jwt', { session: false }), [
-  check('Username', 'Username is required').isLength({min: 5}),
-  check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
-  check('Password', 'Password is required').not().isEmpty(),
-  check('Email', 'Email does not appear to be valid').isEmail()
+app.put('/users/:username', passport.authenticate('jwt', { session: false }), [
+  check('username', 'Username is required').isLength({min: 5}),
+  check('username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
+  check('password', 'Password is required').not().isEmpty(),
+  check('email', 'Email does not appear to be valid').isEmail()
 ], (req, res) => {
   
   
@@ -163,12 +163,12 @@ app.put('/users/:Username', passport.authenticate('jwt', { session: false }), [
   }
  
   let hashedPassword = Users.hashPassword(req.body.Password);
-  Users.findOneAndUpdate({ username: req.params.Username }, { $set:
+  Users.findOneAndUpdate({ username: req.params.username }, { $set:
     {
-      Username: req.body.Username,
-      Password: hashedPassword,
-      Email: req.body.Email,
-      Birthday: req.body.Birthday
+      username: req.body.username,
+      password: hashedPassword,
+      email: req.body.email,
+      birthday: req.body.birthday
     }
   },
   { new: true }, 
@@ -177,7 +177,7 @@ app.put('/users/:Username', passport.authenticate('jwt', { session: false }), [
       console.error(err);
       res.status(500).send('Error: ' + err);
     } else {
-      const message = req.params.Username + ' successfully updated!'
+      const message = req.params.username + ' successfully updated!'
       res.status(201).send(message);
     }
   });
@@ -202,7 +202,7 @@ app.post('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { sess
 
 
   
-app.delete('/users/:Username/movies/:MovieID', (req, res) => {
+app.delete('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { session: false }), (req, res) => {
     Users.findOneAndUpdate({ Username: req.params.Username }, {
        $pull: { FavoriteMovie: req.params.MovieID }
      },
