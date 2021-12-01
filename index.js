@@ -148,7 +148,7 @@ app.post('/users', [
 
 
 
-app.put('/users/:Username', passport.authenticate('jwt', { session: false }), [
+app.put('/users/:Username', [
   check('Username', 'Username is required').isLength({min: 5}),
   check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
   check('Password', 'Password is required').not().isEmpty(),
