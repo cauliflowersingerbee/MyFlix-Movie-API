@@ -13,19 +13,21 @@ const express = require('express');
  */
       morgan = require('morgan');
 /**
- * 
+ * using uuid to create unique ids 
  */
       uuid = require('uuid');
 /**
- * 
+ * using body parser to parse incoming request bodies
+ * in middleware before handling them
  */
       bodyParser = require('body-parser');
 /**
- * 
+ * using lodash to write more concise and maintainable code
  */
       lodash = require('lodash');
 /**
- * 
+ * using cors to allow/restrict requested web resources
+ * depending on source of server requesting
  */
       const cors = require('cors');
 
@@ -71,7 +73,9 @@ const app = express();
     res.status(500).send(err);
 });
   
-
+/**
+ * 
+ */
 app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.find()
   .then((movies) => {
