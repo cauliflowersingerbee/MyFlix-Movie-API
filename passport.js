@@ -1,3 +1,7 @@
+/**
+ * using passport which is authentication middleware for 
+ * Node.js used in any Express-based application
+ */
 const passport = require('passport'),
   LocalStrategy = require('passport-local').Strategy,
   Models = require('./models.js'),
