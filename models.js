@@ -1,3 +1,6 @@
+/**
+ * @file contains interactive data / data logic
+ */
 const mongoose = require('mongoose');
 
 const bcryptjs = require('bcryptjs');
