@@ -1,8 +1,32 @@
+/**
+ * @file contains logic to build REST API for movie client
+ */
+
+/**
+ * using express: a http server library that simplifies 
+ * API development. Highly customizable using middleware.
+ */
 const express = require('express');
+/**
+ *using morgan: a Node.js and express middleware to log 
+ http resuests and errors
+ */
       morgan = require('morgan');
+/**
+ * 
+ */
       uuid = require('uuid');
+/**
+ * 
+ */
       bodyParser = require('body-parser');
+/**
+ * 
+ */
       lodash = require('lodash');
+/**
+ * 
+ */
       const cors = require('cors');
 
 const router = express.Router();
@@ -238,7 +262,9 @@ app.get('/', (req, res) => {
   res.send('Welcome to Kino Noir!');
 });
 
-
+/**
+ * setting up the listening port in the development environment
+ */
 const port = process.env.PORT || 8080;
 app.listen(port, '0.0.0.0',() => {
  console.log('Listening on Port ' + port);
