@@ -1,9 +1,13 @@
 /**
- * using passport which is authentication middleware for 
+ * using Passport which is authentication middleware for 
  * Node.js used in any Express-based application
  */
 const passport = require('passport'),
   LocalStrategy = require('passport-local').Strategy,
+  /**
+   * Models make the M of MVC architecture and contain 
+   * interactive data. Model handles data logic.
+   */
   Models = require('./models.js'),
   passportJWT = require('passport-jwt');
 
