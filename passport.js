@@ -1,3 +1,7 @@
+
+/**
+ * @file contains authentication logic for API
+ */
 /**
  * using Passport which is authentication middleware for 
  * Node.js used in any Express-based application
@@ -14,6 +18,10 @@ const passport = require('passport'),
 let Users = Models.User,
   JWTStrategy = passportJWT.Strategy,
   ExtractJWT = passportJWT.ExtractJwt;
+
+/**
+ * logic to authenticate users
+ */
 
 passport.use(new LocalStrategy({
   usernameField: 'Username',
